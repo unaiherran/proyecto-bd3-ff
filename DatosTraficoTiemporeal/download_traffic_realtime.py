@@ -56,7 +56,7 @@ if __name__ == "__main__":
 
         logging.info(f'Writing {len(data)} rows in {csv_file}')
         try:
-            with open(csv_file, 'a') as csvfile:
+            with open(csv_file, 'w') as csvfile:
                 writer = csv.DictWriter(csvfile, fieldnames=csv_columns)
                 writer.writeheader()
                 for data in data:
