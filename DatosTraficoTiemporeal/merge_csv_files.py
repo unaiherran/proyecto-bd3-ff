@@ -10,7 +10,8 @@ import pandas as pd
 
 from config import *
 
-logging.basicConfig(level=logging.INFO, filemode='a', format='%(asctime)s - %(message)s')
+logging.basicConfig(level=logging.INFO, filename='merger_realtime.log', filemode='a',
+                    format='%(asctime)s - %(message)s')
 
 
 def merge_data():
@@ -43,14 +44,13 @@ def merge_data():
 
                 # invalid_date_df = combined_csv.ix[~combined_csv.fecha.str.contains('(\d{2})[/](\d{2})[/](\d{4})')]
                 # invalid_date_df.head(100)
-                print(combined_csv.head(10))
                 combined_csv['fecha'] = pd.to_datetime(combined_csv['fecha'], format='%d/%m/%Y %H:%M:%S',
                                                        errors='coerce')
                 combined_csv['dia_semana'] = combined_csv['fecha'].dt.dayofweek
                 combined_csv['mes'] = combined_csv['fecha'].dt.month
                 combined_csv['hora'] = combined_csv['fecha'].dt.hour.map(str)
                 combined_csv['minutos'] = combined_csv['fecha'].dt.minute.apply(lambda x: '{0:0>2}'.format(x))
-                print(combined_csv.head(10))
+
                 logging.info('Writing ...')
                 cursor = connection.cursor()
 
@@ -71,7 +71,7 @@ error, subarea, st_x, st_y, dia_semana, mes, hora) VALUES({row.get("idelem")}, \
 {row.get("intensidad")}, {row.get("ocupacion")}, {row.get("carga")}, {row.get("nivelServicio")}, \
 {row.get("intensidadSat")}, \'{row.get("error")}\', {row.get("subarea")}, {row.get("st_x").replace(",", ".")}, {row.get("st_y").replace(",", ".")}, \
 {row.get("dia_semana")}, {row.get("mes")}, {row.get("hora")}{row.get("minutos")});'
-                    print(sql)
+                    logging.debug(sql)
                     cursor.execute(sql)
                 # close the connection to the database.
                 cursor.close()
