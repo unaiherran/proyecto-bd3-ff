@@ -52,7 +52,7 @@ if __name__ == "__main__":
           obj['st_y'] = pm.find('st_y').text
           data.append(obj)
 
-        csv_file = f"real_time{fecha.replace('/', '-').replace(':', '_')}.csv"
+        csv_file = f"csv/real_time{fecha.replace('/', '-').replace(':', '_')}.csv"
 
         logging.info(f'Writing {len(data)} rows in {csv_file}')
         try:
