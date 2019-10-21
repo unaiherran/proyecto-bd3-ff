@@ -57,7 +57,7 @@ eventos_reduced_df['FECHA'] = pd.to_datetime(eventos_reduced_df['FECHA'])
 eventos_reduced_df['FECHA-FIN'] = pd.to_datetime(eventos_reduced_df['FECHA-FIN'])
 
 
-# In[19]:
+# In[20]:
 
 
 
@@ -99,7 +99,7 @@ for _, row in eventos_reduced_df.iterrows():
                 #print('este día hay evento\n')
                 evento_nuevo = {}
             
-                evento_nuevo['TITULO'] = row['TITULO']
+                evento_nuevo['TITULO'] = row['TITULO'].replace('\'', '')
                 evento_nuevo['GRATUITO'] = row['GRATUITO']
                 evento_nuevo['FECHA'] = fecha
                 evento_nuevo['FECHA-FIN'] = row['FECHA-FIN']
