@@ -5,16 +5,15 @@
 
 
 import pandas as pd
-from tqdm import tqdm
 from datetime import datetime
 from datetime import timedelta 
 
 
-# In[11]:
+# In[18]:
 
 
-get_ipython().system('wget https://www.dropbox.com/s/1wnnyvfof600y74/300107-0-agenda-actividades-eventos.csv')
-get_ipython().system('ls -l')
+#!wget https://www.dropbox.com/s/1wnnyvfof600y74/300107-0-agenda-actividades-eventos.csv
+#!ls -l
 
 
 # In[2]:
@@ -58,7 +57,7 @@ eventos_reduced_df['FECHA'] = pd.to_datetime(eventos_reduced_df['FECHA'])
 eventos_reduced_df['FECHA-FIN'] = pd.to_datetime(eventos_reduced_df['FECHA-FIN'])
 
 
-# In[8]:
+# In[19]:
 
 
 
@@ -66,7 +65,7 @@ dias_semana = ['L', 'M', 'X', 'J', 'V', 'S', 'D']
 
 eventos_final = []
 
-for _, row in tqdm(eventos_reduced_df.iterrows()):
+for _, row in eventos_reduced_df.iterrows():
     
     fecha = row['FECHA']
     fecha_fin = row['FECHA-FIN']
@@ -156,13 +155,12 @@ eventos_final_df.tail(5)
 import mysql.connector
 from mysql.connector import Error
 from mysql.connector import errorcode
+from config import *
 
 
 # In[16]:
 
 
-
-from config import *
 
 if __name__ == "__main__":
     
@@ -177,9 +175,9 @@ if __name__ == "__main__":
 
         cursor = connection.cursor()
         
-        for _, row in df.iterrows():
+        for _, row in eventos_final_df.iterrows():
             print(row)
-            sql = f'INSERT INTO DatosEventos(fecha, gratuito, titulo, longitud, latitud)             VALUES             ({row.get("FECHA")}, {row.get("GRATUITO")}, \'{row.get("TITULO")}\', {row.get("LONGITUD")}, {row.get("LATITUD")});'
+            sql = f'INSERT INTO DatosEventos(fecha, gratuito, titulo, longitud, latitud)             VALUES             (\'{row.get("FECHA")}\', {row.get("GRATUITO")}, \'{row.get("TITULO")}\', {row.get("LONGITUD")}, {row.get("LATITUD")});'
             print(sql)
             cursor.execute(sql)
 
