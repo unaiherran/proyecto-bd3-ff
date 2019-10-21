@@ -1,16 +1,12 @@
 #! /usr/bin/env python
 # -*- coding: utf-8 -*-
 import requests
-import xml.etree.ElementTree as ET
-import lxml.etree as etree
 import pandas as pd
 from io import StringIO
-import time
 from sqlalchemy import create_engine, inspect
 from sqlalchemy.orm import sessionmaker
-from sqlalchemy import Column, Integer, String, ForeignKey, Float
+from sqlalchemy import Column, Integer, String, Float
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import relationship, backref
 Base = declarative_base()
 
 class contaminacion(object):
