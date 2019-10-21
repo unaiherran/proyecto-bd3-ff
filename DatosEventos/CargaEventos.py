@@ -99,7 +99,7 @@ for _, row in eventos_reduced_df.iterrows():
                 #print('este día hay evento\n')
                 evento_nuevo = {}
             
-                evento_nuevo['TITULO'] = row['TITULO'].replace('\'', '')
+                evento_nuevo['TITULO'] = row['TITULO']
                 evento_nuevo['GRATUITO'] = row['GRATUITO']
                 evento_nuevo['FECHA'] = fecha
                 evento_nuevo['FECHA-FIN'] = row['FECHA-FIN']
@@ -177,7 +177,7 @@ if __name__ == "__main__":
         
         for _, row in eventos_final_df.iterrows():
             print(row)
-            sql = f'INSERT INTO DatosEventos(fecha, gratuito, titulo, longitud, latitud)             VALUES             (\'{row.get("FECHA")}\', {row.get("GRATUITO")}, \'{row.get("TITULO")}\', {row.get("LONGITUD")}, {row.get("LATITUD")});'
+            sql = f'INSERT INTO DatosEventos(fecha, gratuito, titulo, longitud, latitud)             VALUES             (\'{row.get("FECHA")}\', {row.get("GRATUITO")}, \"{row.get("TITULO")}\", {row.get("LONGITUD")}, {row.get("LATITUD")});'
             print(sql)
             cursor.execute(sql)
 
@@ -197,7 +197,7 @@ if __name__ == "__main__":
 # In[ ]:
 
 
-
+'Circuit des Yeux'''s'''
 
 
 # In[ ]:
