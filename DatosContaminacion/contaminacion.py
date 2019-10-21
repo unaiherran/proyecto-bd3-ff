@@ -7,6 +7,7 @@ from sqlalchemy import create_engine, inspect
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import Column, Integer, String, Float
 from sqlalchemy.ext.declarative import declarative_base
+from time import sleep
 Base = declarative_base()
 
 class contaminacion(object):
@@ -113,8 +114,8 @@ class contaminacion(object):
                               'h15': h15, 'h16': h16, 'h17': h17, 'h18': h18, 'h19': h19, 'h20': h20, 'h21': h21,
                               'h22': h22, 'h23': h23, 'h24': h24, 'v01': v01, 'v02': v02, 'v03': v03, 'v04': v04,
                               'v05': v05, 'v06': v06, 'v07': v07, 'v08': v08, 'v09': v09, 'v10': v10, 'v11': v11,
-                              'v12': v12, 'v13': v13, 'v14': h14, 'v15': v15, 'v16': v16, 'v17': v17, 'v18': v18,
-                              'v19': v19, 'v20': v20, 'v21': v21, 'v22': v22, 'v23': h23, 'v24': h24})
+                              'v12': v12, 'v13': v13, 'v14': v14, 'v15': v15, 'v16': v16, 'v17': v17, 'v18': v18,
+                              'v19': v19, 'v20': v20, 'v21': v21, 'v22': v22, 'v23': v23, 'v24': v24})
 
             except:
                 print('Creo la tabla')
@@ -215,5 +216,8 @@ class DatoContaminacion(Base):
 
 
 mi_objeto = contaminacion()
-#mi_objeto.save_data()
-mi_objeto.print_table()
+
+while True:
+    mi_objeto.save_data()
+    sleep(3600)
+#mi_objeto.print_table()
