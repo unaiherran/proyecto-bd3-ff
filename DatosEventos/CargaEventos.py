@@ -110,7 +110,7 @@ for _, row in eventos_reduced_df.iterrows():
                 evento_nuevo['HORA'] = row['HORA']
                 evento_nuevo['LATITUD'] = row['LATITUD']
                 evento_nuevo['LONGITUD'] = row['LONGITUD']
-                evento_nuevo['cluster'] = coordenadas_a_cluster(row['LONGITUD'], row['LATITUD'], modelo)
+                evento_nuevo['CLUSTER'] = coordenadas_a_cluster(row['LONGITUD'], row['LATITUD'], modelo)
                 
                 eventos_final.append(evento_nuevo)
 
@@ -125,7 +125,7 @@ for _, row in eventos_reduced_df.iterrows():
         evento_nuevo['HORA'] = row['HORA']
         evento_nuevo['LATITUD'] = row['LATITUD']
         evento_nuevo['LONGITUD'] = row['LONGITUD']
-        evento_nuevo['cluster'] = coordenadas_a_cluster(row['LONGITUD'], row['LATITUD'], modelo)
+        evento_nuevo['CLUSTER'] = coordenadas_a_cluster(row['LONGITUD'], row['LATITUD'], modelo)
 
         eventos_final.append(evento_nuevo)
 
@@ -183,7 +183,7 @@ if __name__ == "__main__":
         
         for _, row in eventos_final_df.iterrows():
             print(row)
-            sql = f'INSERT INTO DatosEventos(fecha, gratuito, titulo, longitud, latitud)             VALUES             (\'{row.get("FECHA")}\', {row.get("GRATUITO")}, \"{row.get("TITULO")}\", {row.get("LONGITUD")}, {row.get("LATITUD")});'
+            sql = f'INSERT INTO DatosEventos(fecha, gratuito, titulo, longitud, latitud, cluster)             VALUES             (\'{row.get("FECHA")}\', {row.get("GRATUITO")}, \"{row.get("TITULO")}\", {row.get("LONGITUD")}, {row.get("LATITUD")}, {row.get("CLUSTER")});'
             print(sql)
             cursor.execute(sql)
 
