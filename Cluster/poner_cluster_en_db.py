@@ -17,7 +17,7 @@ modelo = load_model("kmeans.21.3.joblib")
 
 if connection.is_connected():
     cur = connection.cursor()
-    q = "SELECT * FROM CamarasTrafico;"
+    q = "SELECT * FROM AuxSensoresTrafico;"
     cur.execute(q)
 
     data = cur.fetchall()
@@ -29,7 +29,7 @@ if connection.is_connected():
 
         cluster = coordenadas_a_cluster(longitud, latitud, modelo)
 
-        sql = f'UPDATE CamarasTrafico SET cluster = {cluster} WHERE id_camara = {id}'
+        sql = f'UPDATE AuxSensoresTrafico SET cluster = {cluster} WHERE id_camara = {id};'
 
         cur.execute(sql)
 
