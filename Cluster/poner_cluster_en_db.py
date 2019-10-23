@@ -24,7 +24,7 @@ for l in lista:
     longitud = l[0]
     latitud = l[1]
 
-    sql = f'INSERT INTO Clusters (id_cluster,longitud, latitud) values ' \
+    sql = f'INSERT INTO Cluster (id_cluster,longitud, latitud) values ' \
                       f'({i}, {longitud}, {latitud});'
 
     cur.execute(sql)
