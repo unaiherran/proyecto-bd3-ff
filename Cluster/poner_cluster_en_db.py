@@ -15,25 +15,42 @@ connection = mysql.connector.connect(
 
 modelo = load_model("kmeans.21.3.joblib")
 
+lista = modelo.cluster_centers_.tolist()
+
 if connection.is_connected():
     cur = connection.cursor()
-    q = "SELECT * FROM SensoresTrafico;"
-    cur.execute(q)
+i = 0
+for l in lista:
+    longitud = l[0]
+    latitud = l[1]
 
-    data = cur.fetchall()
+    sql = f'INSERT INTO Clusters (id_cluster,longitud, latitud) values ' \
+                      f'({i}, {longitud}, {latitud});'
 
-    for d in data:
-        print (d)
-        id = d[0]
-        longitud = d[5]
-        latitud = d[6]
+    cur.execute(sql)
 
-        cluster = coordenadas_a_cluster(longitud, latitud, modelo)
+    connection.commit()
+    i += 1
 
-        sql = f'UPDATE SensoresTrafico SET cluster = {cluster} WHERE id = {id};'
-
-        cur.execute(sql)
-
-        connection.commit()
-
-        print(id, cluster, cur.rowcount, "records affected")
+#if connection.is_connected():
+    #cur = connection.cursor()
+    # q = "SELECT * FROM SensoresTrafico;"
+    # cur.execute(q)
+    #
+    # data = cur.fetchall()
+    #
+    # for d in data:
+    #     print (d)
+    #     id = d[0]
+    #     longitud = d[5]
+    #     latitud = d[6]
+    #
+    #     cluster = coordenadas_a_cluster(longitud, latitud, modelo)
+    #
+    #     sql = f'UPDATE SensoresTrafico SET cluster = {cluster} WHERE id = {id};'
+    #
+    #     cur.execute(sql)
+    #
+    #     connection.commit()
+    #
+    #     print(id, cluster, cur.rowcount, "records affected")

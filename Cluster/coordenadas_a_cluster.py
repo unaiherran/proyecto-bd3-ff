@@ -52,7 +52,7 @@ def main():
     # coordenadas_a_cluster(longitud, latitud, modelo) devuelve el cluster al que pertenece esas coordenadas
 
     # Ejemplo:
-    longitud = -3.89051645
+    longitud = -3.69051645
     latitud = 40.42566934
 
     # cargamos el modelo
