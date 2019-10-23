@@ -25,3 +25,13 @@ if connection.is_connected():
         longitud = d[2]
         latitud = d[3]
         print(id, longitud, latitud)
+
+        cluster = 1
+
+        sql = f'UPDATE AuxCamaras SET cluster = {cluster} WHERE id_camara = {id}'
+
+        cur.execute(sql)
+
+        connection.commit()
+
+        print(cur.rowcount, "records affected")
