@@ -1,12 +1,16 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[9]:
 
 
 import pandas as pd
 from datetime import datetime
-from datetime import timedelta 
+from datetime import timedelta
+
+from coordenadas_a_cluster import *
+
+modelo = load_model("kmeans.21.3.joblib")
 
 
 # In[18]:
@@ -16,27 +20,27 @@ from datetime import timedelta
 #!ls -l
 
 
-# In[2]:
+# In[10]:
 
 
 eventos_df = pd.read_csv('300107-0-agenda-actividades-eventos.csv', encoding = 'ISO-8859-1', sep=';', engine='python')
 eventos_df.head(5)
 
 
-# In[3]:
+# In[11]:
 
 
 print(eventos_df.shape)
 eventos_reduced_df = eventos_df[['TITULO', 'GRATUITO', 'DIAS-SEMANA', 'FECHA', 'FECHA-FIN', 'HORA', 'LATITUD', 'LONGITUD']]
 
 
-# In[4]:
+# In[12]:
 
 
 eventos_reduced_df.tail(5)
 
 
-# In[5]:
+# In[13]:
 
 
 print('Limpiamos el dataset de elementos que no tengan los campos obligatorios')
@@ -44,20 +48,20 @@ eventos_reduced_df = eventos_reduced_df.dropna(subset=['HORA', 'LATITUD', 'LONGI
 eventos_reduced_df.tail(10)
 
 
-# In[6]:
+# In[14]:
 
 
 print(eventos_reduced_df.shape)
 
 
-# In[7]:
+# In[15]:
 
 
 eventos_reduced_df['FECHA'] = pd.to_datetime(eventos_reduced_df['FECHA'])
 eventos_reduced_df['FECHA-FIN'] = pd.to_datetime(eventos_reduced_df['FECHA-FIN'])
 
 
-# In[20]:
+# In[27]:
 
 
 
@@ -106,6 +110,7 @@ for _, row in eventos_reduced_df.iterrows():
                 evento_nuevo['HORA'] = row['HORA']
                 evento_nuevo['LATITUD'] = row['LATITUD']
                 evento_nuevo['LONGITUD'] = row['LONGITUD']
+                evento_nuevo['CLUSTER'] = coordenadas_a_cluster(row['LONGITUD'], row['LATITUD'], modelo)
                 
                 eventos_final.append(evento_nuevo)
 
@@ -120,6 +125,7 @@ for _, row in eventos_reduced_df.iterrows():
         evento_nuevo['HORA'] = row['HORA']
         evento_nuevo['LATITUD'] = row['LATITUD']
         evento_nuevo['LONGITUD'] = row['LONGITUD']
+        evento_nuevo['CLUSTER'] = coordenadas_a_cluster(row['LONGITUD'], row['LATITUD'], modelo)
 
         eventos_final.append(evento_nuevo)
 
@@ -129,25 +135,25 @@ eventos_final_df = pd.DataFrame(eventos_final)
     
 
 
-# In[9]:
+# In[28]:
 
 
 eventos_final_df.shape
 
 
-# In[12]:
+# In[29]:
 
 
 eventos_final_df.head(5)
 
 
-# In[11]:
+# In[30]:
 
 
 eventos_final_df.tail(5)
 
 
-# In[13]:
+# In[31]:
 
 
 #pip install mysql-connector-python
@@ -177,7 +183,7 @@ if __name__ == "__main__":
         
         for _, row in eventos_final_df.iterrows():
             print(row)
-            sql = f'INSERT INTO DatosEventos(fecha, gratuito, titulo, longitud, latitud)             VALUES             (\'{row.get("FECHA")}\', {row.get("GRATUITO")}, \"{row.get("TITULO")}\", {row.get("LONGITUD")}, {row.get("LATITUD")});'
+            sql = f'INSERT INTO DatosEventos(fecha, gratuito, titulo, longitud, latitud, cluster)             VALUES             (\'{row.get("FECHA")}\', {row.get("GRATUITO")}, \"{row.get("TITULO")}\", {row.get("LONGITUD")}, {row.get("LATITUD")}, {row.get("CLUSTER")});'
             print(sql)
             cursor.execute(sql)
 
@@ -192,6 +198,24 @@ if __name__ == "__main__":
         if (connection.is_connected()):
             connection.close()
             print("MySQL connection is closed")
+
+
+# In[2]:
+
+
+
+
+
+# In[ ]:
+
+
+
+
+
+# In[ ]:
+
+
+
 
 
 # In[ ]:
