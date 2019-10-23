@@ -45,6 +45,7 @@ def coordenadas_a_cluster(longitud, latitud, modelo):
     coordenadas = np.array([longitud, latitud])
     return modelo.predict(X=coordenadas.reshape(1, -1))[0]
 
+
 def main():
     # Uso:
     # cargar el modelo con load_model
