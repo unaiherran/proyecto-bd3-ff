@@ -17,17 +17,15 @@ modelo = load_model("kmeans.21.3.joblib")
 
 if connection.is_connected():
     cur = connection.cursor()
-    q = "SELECT * FROM AuxCamaras;"
+    q = "SELECT * FROM Camaras;"
     cur.execute(q)
 
     data = cur.fetchall()
-    print(data)
 
     for d in data:
         id = d[0]
         longitud = d[2]
         latitud = d[3]
-        print(id, longitud, latitud)
 
         cluster = coordenadas_a_cluster(longitud, latitud, modelo)
 
@@ -37,4 +35,4 @@ if connection.is_connected():
 
         connection.commit()
 
-        print(cur.rowcount, "records affected")
+        print(id, cluster, cur.rowcount, "records affected")
