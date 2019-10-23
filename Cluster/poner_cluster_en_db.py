@@ -2,6 +2,7 @@ from decimal import Decimal
 from datetime import datetime, date, timedelta
 
 import mysql.connector
+from coordenadas_a_cluster import *
 from secret import *
 
 connection = mysql.connector.connect(
@@ -12,21 +13,21 @@ connection = mysql.connector.connect(
     port=db_port
 )
 
+modelo = load_model("kmeans.21.3.joblib")
+
 if connection.is_connected():
     cur = connection.cursor()
-    q = "SELECT * FROM AuxCamaras;"
+    q = "SELECT * FROM Camaras;"
     cur.execute(q)
 
     data = cur.fetchall()
-    print(data)
 
     for d in data:
         id = d[0]
         longitud = d[2]
         latitud = d[3]
-        print(id, longitud, latitud)
 
-        cluster = 1
+        cluster = coordenadas_a_cluster(longitud, latitud, modelo)
 
         sql = f'UPDATE AuxCamaras SET cluster = {cluster} WHERE id_camara = {id}'
 
@@ -34,4 +35,4 @@ if connection.is_connected():
 
         connection.commit()
 
-        print(cur.rowcount, "records affected")
+        print(id, cluster, cur.rowcount, "records affected")
