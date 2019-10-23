@@ -30,7 +30,7 @@ if connection.is_connected():
 
         cluster = coordenadas_a_cluster(longitud, latitud, modelo)
 
-        sql = f'UPDATE AuxSensoresTrafico SET cluster = {cluster} WHERE id_camara = {id};'
+        sql = f'UPDATE AuxSensoresTrafico SET cluster = {cluster} WHERE id = {id};'
 
         cur.execute(sql)
 
