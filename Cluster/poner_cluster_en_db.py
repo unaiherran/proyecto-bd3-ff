@@ -17,7 +17,7 @@ modelo = load_model("kmeans.21.3.joblib")
 
 if connection.is_connected():
     cur = connection.cursor()
-    q = "SELECT * FROM Camaras;"
+    q = "SELECT * FROM CamarasTrafico;"
     cur.execute(q)
 
     data = cur.fetchall()
