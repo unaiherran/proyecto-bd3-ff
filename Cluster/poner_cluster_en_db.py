@@ -20,3 +20,5 @@ if connection.is_connected():
     data = cur.fetchall()
     print(data)
 
+    for d in data:
+        print(d)
