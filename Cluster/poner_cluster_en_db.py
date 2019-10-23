@@ -23,6 +23,7 @@ if connection.is_connected():
     data = cur.fetchall()
 
     for d in data:
+        print (d)
         id = d[0]
         longitud = d[2]
         latitud = d[3]
