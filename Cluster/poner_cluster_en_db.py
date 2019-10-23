@@ -21,4 +21,7 @@ if connection.is_connected():
     print(data)
 
     for d in data:
-        print(d)
+        id = d[0]
+        longitud = d[2]
+        latitud = d[3]
+        print(id, longitud, latitud)
