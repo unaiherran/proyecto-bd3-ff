@@ -25,8 +25,8 @@ if connection.is_connected():
     for d in data:
         print (d)
         id = d[0]
-        longitud = d[2]
-        latitud = d[3]
+        longitud = d[5]
+        latitud = d[6]
 
         cluster = coordenadas_a_cluster(longitud, latitud, modelo)
 
