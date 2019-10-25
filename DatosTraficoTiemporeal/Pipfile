@@ -8,6 +8,5 @@ requests = "*"
 pandas = "*"
 mysql-connector = "*"
 
-
 [dev-packages]
 pytest = "*"

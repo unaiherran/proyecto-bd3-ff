@@ -11,3 +11,6 @@ CREATE TABLE CamarasSensores (
 ENGINE=InnoDB
 DEFAULT CHARSET=latin1
 COLLATE=latin1_swedish_ci;
+
+
+ALTER TABLE proyecto.DatosTrafico ADD CONSTRAINT DatosTrafico_FK FOREIGN KEY (id_sensor) REFERENCES proyecto.SensoresTrafico(id);
