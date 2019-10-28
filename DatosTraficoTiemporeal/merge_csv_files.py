@@ -34,6 +34,7 @@ def merge_data():
             extension = 'csv'
             all_filenames = [i for i in glob.glob('*.{}'.format(extension))][:10]
             logging.info(f'Found {len(all_filenames)} files')
+            logging.info(f'Files {all_filenames}')
 
             if len(all_filenames) > 0:
                 logging.info('Mergering ...')
@@ -61,6 +62,8 @@ def merge_data():
                         if isinstance(v, numbers.Number) and math.isnan(v):
                             row[k] = 0
 
+                    if row.get("idelem") == 0 or row.get("idelem") >= 10495:
+                        continue
                     row['dia_semana'] = str(row['dia_semana']).replace(".0", "")
                     row['mes'] = str(row['mes']).replace(".0", "")
                     row['hora'] = str(row['hora']).replace(".0", "")
