@@ -1,0 +1,32 @@
+#!/bin/bash
+
+TOKEN="930755245:AAGVgqBa4Kwtk1Hej4ZUtd6C6Vfxyuglt-k"
+ID="-1001299530771:"
+URL="https://api.telegram.org/bot$TOKEN/sendMessage"
+
+
+NUM=`ps aux | grep 'merge_csv_files.py' | grep python | wc -l`
+if [ $NUM -eq 0 ]; then
+    curl -s -X POST $URL -d chat_id=$ID -d text="El proceso merge no está funcionando"
+fi
+
+NUM=`ps aux | grep 'download_traffic_realtime.py' | grep python | wc -l`
+if [ $NUM -eq 0 ]; then
+    curl -s -X POST $URL -d chat_id=$ID -d text="El proceso datos trafico no está funcionando"
+fi
+
+NUM=`ps aux | grep 'contaminacion.py' | grep python | wc -l`
+if [ $NUM -eq 0 ]; then
+    curl -s -X POST $URL -d chat_id=$ID -d text="El proceso contaminacion.py no está funcionando"
+fi
+
+NUM=`ps aux | grep 'scraper2.py' | grep python | wc -l`
+if [ $NUM -eq 0 ]; then
+    curl -s -X POST $URL -d chat_id=$ID -d text="El proceso scraper2.py no está funcionando"
+fi
+
+NUM=`ps aux | grep 'send_to_s3.py' | grep python | wc -l`
+if [ $NUM -eq 0 ]; then
+    curl -s -X POST $URL -d chat_id=$ID -d text="El proceso send_to_s3.py no está funcionando"
+fi
+
