@@ -88,8 +88,8 @@ def clusterizar_camaras():
 
 
 def main():
-    clusterizar_camaras()
-
+    # clusterizar_camaras()
+    clusterizar_sensores()
 
 
 if __name__ == '__main__':
