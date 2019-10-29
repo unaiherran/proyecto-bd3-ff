@@ -139,6 +139,11 @@ def contaminacion_a_cluster():
             sensor = y_pred_contaminacion.predict(X=coordenadas.reshape(1, -1))[0]
 
             sql = f'UPDATE Cluster SET contaminacion = {sensor} WHERE id_cluster = {id}'
+            cur.execute(sql)
+
+            connection.commit()
+
+            print(id, sensor)
 
 
 def main():
