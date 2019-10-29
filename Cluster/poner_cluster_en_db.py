@@ -173,14 +173,15 @@ def clusterizar_gran_evento():
             for clu in lista_clusters:
                 coords_clu = (clu[1], clu[2])
 
-                if geopy.distance.geodesic(coords_ge, coords_clu).m < distancia:
-                    lista_clusters_cercanos.append(clu[0])
+                if clu[0] != main_cluster:
+                    if geopy.distance.geodesic(coords_ge, coords_clu).m < distancia:
+                        lista_clusters_cercanos.append(clu[0])
 
             near_clu = ' '.join([str(elem) for elem in lista_clusters_cercanos])
 
             sql = f'UPDATE DatosGrandesEventos SET cluster = {main_cluster}, clusters_cercanos = "{near_clu}" ' \
                   f'WHERE id = {id_evento};'
-            print(sql)
+
             cur.execute(sql)
 
             connection.commit()
