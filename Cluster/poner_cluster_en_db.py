@@ -93,4 +93,4 @@ def main():
 
 
 if __name__ == '__main__':
-    clusterizar_camaras(modelo)
+    main()
