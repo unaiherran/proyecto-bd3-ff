@@ -117,7 +117,41 @@ def contaminacion_a_cluster():
     if connection.is_connected():
         q = "SELECT longitud, latitud FROM contaminacion_estacion;"
         df = pd.read_sql(q, connection)
-        print(df)
+        X_contaminacion = df.drop(columns=['id']).values
+        num_cluster_cont = 24
+        random_state = 42
+        kmeans_contaminacion = KMeans(n_clusters=num_cluster_cont, random_state=random_state)
+        y_pred_contaminacion = kmeans_contaminacion.fit(X_contaminacion)
+
+        cur = connection.cursor()
+        q = "SELECT id_cluster, longitud, latitud FROM Clusters;"
+        cur.execute(q)
+
+        cluster = cur.fetchall()
+
+        for c in cluster:
+            id = c[0]
+            long = c[1]
+            lat = c[2]
+            coordenadas = np.array([long, lat])
+
+            sensor = y_pred_contaminacion.predict(X=coordenadas.reshape(1, -1))[0]
+
+            sql = f'UPDATE Cluster SET contaminacion = {sensor} WHERE id_cluster = {id}'
+        i = 0
+        for l in lista:
+            longitud = l[0]
+            latitud = l[1]
+
+            sql = f'INSERT INTO Cluster (id_cluster,longitud, latitud) values ' \
+                  f'({i}, {longitud}, {latitud});'
+
+            cur.execute(sql)
+
+            connection.commit()
+            i += 1
+
+
 
 
 def main():
