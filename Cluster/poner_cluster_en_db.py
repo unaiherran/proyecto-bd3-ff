@@ -71,14 +71,14 @@ def clusterizar_eventos():
         data = cur.fetchall()
 
         for d in data:
-            print (d)
+
             id = d[0]
             longitud = d[1]
             latitud = d[2]
 
             cluster = coordenadas_a_cluster(longitud, latitud, modelo)
 
-            sql = f'UPDATE SensoresTrafico SET cluster = {cluster} WHERE id = {id};'
+            sql = f'UPDATE DatosEventos SET cluster = {cluster} WHERE id = {id};'
 
             cur.execute(sql)
 
