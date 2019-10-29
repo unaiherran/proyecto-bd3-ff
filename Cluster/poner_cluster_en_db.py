@@ -125,7 +125,7 @@ def contaminacion_a_cluster():
         y_pred_contaminacion = kmeans_contaminacion.fit(X_contaminacion)
 
         cur = connection.cursor()
-        q = "SELECT id_cluster, longitud, latitud FROM Clusters;"
+        q = "SELECT id_cluster, longitud, latitud FROM Cluster;"
         cur.execute(q)
 
         cluster = cur.fetchall()
@@ -139,20 +139,6 @@ def contaminacion_a_cluster():
             sensor = y_pred_contaminacion.predict(X=coordenadas.reshape(1, -1))[0]
 
             sql = f'UPDATE Cluster SET contaminacion = {sensor} WHERE id_cluster = {id}'
-        i = 0
-        for l in lista:
-            longitud = l[0]
-            latitud = l[1]
-
-            sql = f'INSERT INTO Cluster (id_cluster,longitud, latitud) values ' \
-                  f'({i}, {longitud}, {latitud});'
-
-            cur.execute(sql)
-
-            connection.commit()
-            i += 1
-
-
 
 
 def main():
