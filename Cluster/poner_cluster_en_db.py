@@ -83,7 +83,7 @@ def clusterizar_camaras():
 
             connection.commit()
 
-            print(id, cluster, cur.rowcount, "records affected")
+            print(id, cluster)
 
 
 def main():
