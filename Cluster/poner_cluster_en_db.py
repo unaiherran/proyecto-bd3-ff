@@ -62,6 +62,32 @@ def clusterizar_sensores():
             print(id, cluster, longitud, latitud, cur.rowcount, "records affected")
 
 
+def clusterizar_eventos():
+    if connection.is_connected():
+        cur = connection.cursor()
+        q = "SELECT id, longitud, latitud FROM DatosEventos;"
+        cur.execute(q)
+
+        data = cur.fetchall()
+
+        for d in data:
+            print (d)
+            id = d[0]
+            longitud = d[1]
+            latitud = d[2]
+
+            cluster = coordenadas_a_cluster(longitud, latitud, modelo)
+
+            sql = f'UPDATE SensoresTrafico SET cluster = {cluster} WHERE id = {id};'
+
+            cur.execute(sql)
+
+            connection.commit()
+
+            print(id, cluster, longitud, latitud, cur.rowcount, "records affected")
+
+
+
 def clusterizar_camaras():
     if connection.is_connected():
         cur = connection.cursor()
@@ -89,8 +115,8 @@ def clusterizar_camaras():
 
 def main():
     # clusterizar_camaras()
-    clusterizar_sensores()
-
+    # clusterizar_sensores()
+    clusterizar_eventos()
 
 if __name__ == '__main__':
     main()
