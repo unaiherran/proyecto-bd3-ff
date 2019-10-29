@@ -13,7 +13,7 @@ connection = mysql.connector.connect(
     port=db_port
 )
 
-modelo = load_model("camaras_cluster.joblib")
+modelo = load_model("recluster.joblib")
 
 
 
