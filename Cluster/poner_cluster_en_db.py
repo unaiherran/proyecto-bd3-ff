@@ -195,7 +195,7 @@ def main():
     # clusterizar_sensores()
     # clusterizar_eventos()
     # contaminacion_a_cluster()
-    clusterizar_gran_evento()
+    # clusterizar_gran_evento()
 
 
 
