@@ -165,7 +165,7 @@ def clusterizar_gran_evento():
             main_cluster = coordenadas_a_cluster(ge_lon, ge_lat, modelo)
             lista_clusters_cercanos = []
 
-            q = "SELECT id, longitud, latitud FROM Cluster;"
+            q = "SELECT id_cluster, longitud, latitud FROM Cluster;"
             cur.execute(q)
             lista_clusters = cur.fetchall()
             coords_ge = (ge_lon, ge_lat)
