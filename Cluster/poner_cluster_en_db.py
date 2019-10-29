@@ -77,7 +77,7 @@ def clusterizar_camaras():
 
             cluster = coordenadas_a_cluster(longitud, latitud, modelo)
 
-            sql = f'UPDATE CamarasTrafico SET cluster = {cluster} WHERE id = {id};'
+            sql = f'UPDATE CamarasTrafico SET cluster = {cluster} WHERE id_camara = {id};'
 
             cur.execute(sql)
 
