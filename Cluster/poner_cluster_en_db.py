@@ -4,6 +4,8 @@ from datetime import datetime, date, timedelta
 import mysql.connector
 from coordenadas_a_cluster import *
 from secret import *
+import pandas as pd
+from sklearn.cluster import KMeans
 
 connection = mysql.connector.connect(
     host=db_host,
@@ -61,7 +63,7 @@ def clusterizar_sensores():
             print(id, cluster, cur.rowcount, "records affected")
 
 
-def clusterizar_camaras():
+def clusterizar_camaras(modelo):
     if connection.is_connected():
         cur = connection.cursor()
         q = "SELECT * FROM CamarasTrafico;"
@@ -75,7 +77,8 @@ def clusterizar_camaras():
             longitud = d[5]
             latitud = d[6]
 
-            cluster = coordenadas_a_cluster(longitud, latitud, modelo)
+            coordenadas = np.array([longitud, latitud])
+            cluster = modelo.predict(X=coordenadas.reshape(1, -1))[0]
 
             sql = f'UPDATE CamarasTrafico SET cluster = {cluster} WHERE id_camara = {id};'
 
@@ -90,5 +93,17 @@ def main():
     clusterizar_camaras()
 
 
+def clusterizar_camaras_csv():
+    camaras = pd.read_csv("CoordCamaras.csv", sep=",")
+    num_cluster = 200
+    random_state = 42
+    kmeans = KMeans(n_clusters=num_cluster, random_state=random_state)
+    print(camaras.columns)
+    X_camaras = camaras.drop(columns=['id_camara']).values
+
+    kmeans.fit(X=X_camaras)
+    print(kmeans.predict(X=X_camaras))
+    return kmeans
+
 if __name__ == '__main__':
-    main()
+    modelo = clusterizar_camaras_csv()
