@@ -99,7 +99,8 @@ def clusterizar_camaras_csv():
     random_state = 42
     kmeans = KMeans(n_clusters=num_cluster, random_state=random_state)
     print(camaras.columns)
-    X_camaras = camaras.drop(columns=['id_camara']).values
+    X_camaras = camaras.drop(columns=['id_camara'])
+    X_camaras = X_camaras.values
 
     kmeans.fit(X=X_camaras)
     print(kmeans.predict(X=X_camaras))
