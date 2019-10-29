@@ -6,6 +6,7 @@ from coordenadas_a_cluster import *
 from secret import *
 import pandas as pd
 from sklearn.cluster import KMeans
+import geopy.distance
 
 connection = mysql.connector.connect(
     host=db_host,
@@ -145,6 +146,47 @@ def contaminacion_a_cluster():
 
             print(id, sensor)
 
+def clusterizar_gran_evento():
+    if connection.is_connected():
+        distancia = 500
+
+        cur = connection.cursor()
+        q = "SELECT id, longitud, latitud FROM DatosGrandesEventos;"
+        cur.execute(q)
+
+        data = cur.fetchall()
+
+        for d in data:
+
+            id_evento = d[0]
+            ge_lon = d[1]
+            ge_lat = d[2]
+
+            main_cluster = coordenadas_a_cluster(ge_lon, ge_lat, modelo)
+            lista_clusters_cercanos = []
+
+            q = "SELECT id, longitud, latitud FROM Cluster;"
+            cur.execute(q)
+            lista_clusters = cur.fetchall()
+            coords_ge = (ge_lon, ge_lat)
+
+            for clu in lista_clusters:
+                coords_clu = (clu[1], clu[2])
+
+                if geopy.distance.geodesic(coords_ge, coords_clu).m < distancia:
+                    lista_clusters_cercanos.append(clu[0])
+
+            near_clu = ' '.join([str(elem) for elem in lista_clusters_cercanos])
+
+            sql = f'UPDATE DatosGrandesEventos SET cluster = {main_cluster}, cluster_cercanos = {near_clu} ' \
+                  f'WHERE id = {id_evento};'
+
+            cur.execute(sql)
+
+            connection.commit()
+
+            print(id, cluster, longitud, latitud, cur.rowcount, "records affected")
+
 
 def main():
     pass
@@ -152,6 +194,7 @@ def main():
     # clusterizar_sensores()
     # clusterizar_eventos()
     # contaminacion_a_cluster()
+    clusterizar_gran_evento()
 
 
 
