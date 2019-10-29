@@ -18,7 +18,6 @@ connection = mysql.connector.connect(
 modelo = load_model("recluster.joblib")
 
 
-
 def poblar_cluster():
     lista = modelo.cluster_centers_.tolist()
 
@@ -41,7 +40,7 @@ def poblar_cluster():
 def clusterizar_sensores():
     if connection.is_connected():
         cur = connection.cursor()
-        q = "SELECT * FROM SensoresTrafico;"
+        q = "SELECT id, longitud, latitud FROM SensoresTrafico;"
         cur.execute(q)
 
         data = cur.fetchall()
@@ -49,8 +48,8 @@ def clusterizar_sensores():
         for d in data:
             print (d)
             id = d[0]
-            longitud = d[5]
-            latitud = d[6]
+            longitud = d[1]
+            latitud = d[2]
 
             cluster = coordenadas_a_cluster(longitud, latitud, modelo)
 
@@ -60,10 +59,10 @@ def clusterizar_sensores():
 
             connection.commit()
 
-            print(id, cluster, cur.rowcount, "records affected")
+            print(id, cluster, longitud, latitud, cur.rowcount, "records affected")
 
 
-def clusterizar_camaras(modelo):
+def clusterizar_camaras():
     if connection.is_connected():
         cur = connection.cursor()
         q = "SELECT * FROM CamarasTrafico;"
@@ -72,16 +71,12 @@ def clusterizar_camaras(modelo):
         data = cur.fetchall()
 
         for d in data:
-            print(d)
+
             id = d[0]
             longitud = d[2]
             latitud = d[3]
 
-            print(f"Longitud:{longitud} Lat:{latitud})")
-
-            coordenadas = np.array([longitud, latitud])
-            cluster = modelo.predict(X=coordenadas.reshape(1, -1))[0]
-            print(cluster)
+            cluster = coordenadas_a_cluster(longitud, latitud, modelo)
 
             sql = f'UPDATE CamarasTrafico SET cluster = {cluster} WHERE id_camara = {id};'
 
@@ -96,18 +91,6 @@ def main():
     clusterizar_camaras()
 
 
-def clusterizar_camaras_csv():
-    camaras = pd.read_csv("coordCamaras.csv", sep=",")
-    num_cluster = 200
-    random_state = 42
-    kmeans = KMeans(n_clusters=num_cluster, random_state=random_state)
-    print(camaras.columns)
-    X_camaras = camaras.drop(columns=['id_camara'])
-    X_camaras = X_camaras.values
-
-    kmeans.fit(X=X_camaras)
-    print(kmeans.predict(X=X_camaras))
-    return kmeans
 
 if __name__ == '__main__':
     modelo = clusterizar_camaras_csv()
