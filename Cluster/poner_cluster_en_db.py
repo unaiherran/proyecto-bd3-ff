@@ -77,8 +77,11 @@ def clusterizar_camaras(modelo):
             longitud = d[5]
             latitud = d[6]
 
+            print(f"Longitud:{longitud} Lat:{latitud})")
+
             coordenadas = np.array([longitud, latitud])
             cluster = modelo.predict(X=coordenadas.reshape(1, -1))[0]
+            print(cluster)
 
             sql = f'UPDATE CamarasTrafico SET cluster = {cluster} WHERE id_camara = {id};'
 
