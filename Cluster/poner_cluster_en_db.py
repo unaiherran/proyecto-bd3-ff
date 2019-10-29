@@ -116,7 +116,7 @@ def clusterizar_camaras():
 def contaminacion_a_cluster():
     if connection.is_connected():
         q = "SELECT longitud, latitud FROM contaminacion_estacion;"
-        df = pd.DataFrame.read_sql(q)
+        df = pd.read_sql(q)
         print(df)
 
 
