@@ -148,7 +148,7 @@ def contaminacion_a_cluster():
 
 def clusterizar_gran_evento():
     if connection.is_connected():
-        distancia = 5000
+        distancia = 1000
 
         cur = connection.cursor()
         q = "SELECT id, longitud, latitud FROM DatosGrandesEventos;"
