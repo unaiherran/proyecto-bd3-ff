@@ -13,7 +13,7 @@ connection = mysql.connector.connect(
     port=db_port
 )
 
-modelo = load_model("kmeans.21.3.joblib")
+modelo = load_model("camaras_cluster.joblib")
 
 lista = modelo.cluster_centers_.tolist()
 

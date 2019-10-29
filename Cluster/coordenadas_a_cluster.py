@@ -10,7 +10,8 @@ def crear_modelo(filename):
     sensores['tipo'] = 0
     camaras['tipo'] = 1
     camaras.columns = ['id', 'longitud', 'latitud', 'tipo']
-    todo = pd.concat([camaras, sensores], sort=False)
+    # todo = pd.concat([camaras, sensores], sort=False)
+    todo = camaras
 
     X_todo = todo.drop(columns=['id', 'tipo']).values
 
