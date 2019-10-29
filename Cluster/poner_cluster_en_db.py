@@ -94,7 +94,7 @@ def main():
 
 
 def clusterizar_camaras_csv():
-    camaras = pd.read_csv("CoordCamaras.csv", sep=",")
+    camaras = pd.read_csv("coordCamaras.csv", sep=",")
     num_cluster = 200
     random_state = 42
     kmeans = KMeans(n_clusters=num_cluster, random_state=random_state)
