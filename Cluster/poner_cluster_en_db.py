@@ -74,8 +74,8 @@ def clusterizar_camaras(modelo):
         for d in data:
             print(d)
             id = d[0]
-            longitud = d[5]
-            latitud = d[6]
+            longitud = d[2]
+            latitud = d[3]
 
             print(f"Longitud:{longitud} Lat:{latitud})")
 
