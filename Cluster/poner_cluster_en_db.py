@@ -147,10 +147,11 @@ def contaminacion_a_cluster():
 
 
 def main():
+    pass
     # clusterizar_camaras()
     # clusterizar_sensores()
-    #clusterizar_eventos()
-    contaminacion_a_cluster()
+    # clusterizar_eventos()
+    # contaminacion_a_cluster()
 
 
 
