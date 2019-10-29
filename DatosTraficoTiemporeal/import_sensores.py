@@ -1,8 +1,8 @@
 import logging
+import math
 
 import mysql.connector
 import pandas as pd
-import math
 
 from config import *
 
@@ -20,7 +20,7 @@ if __name__ == "__main__":
     if connection.is_connected():
         cursor = connection.cursor()
 
-        df = pd.read_csv('202468-31-intensidad-trafico.csv', delimiter=';')
+        df = pd.read_csv('pmed_ubicacion_09-2019.csv', delimiter=',')
 
         for index, row in df.iterrows():
             if row.get('tipo_elem') == 'URB':
@@ -28,7 +28,7 @@ if __name__ == "__main__":
             else:
                 tipo_elem = 1
 
-            if math.isnan(row.get('distrito')):
+            if math.isnan(row.get('distrito', 0)):
                 distrito = -1
             else:
                 distrito = row.get('distrito')
@@ -38,9 +38,7 @@ if __name__ == "__main__":
             VALUES ({tipo_elem}, {distrito}, {row.get("id")}, \'{row.get("cod_cent")}\', \'{row.get("nombre")}\', {row.get("utm_x")}, {row.get("utm_y")}, {row.get("longitud")}, {row.get("latitud")});'
             print(sql)
             cursor.execute(sql)
-        #close the connection to the database.
+        # close the connection to the database.
         connection.commit()
         cursor.close()
-        print ("Done")
-
-
+        print("Done")

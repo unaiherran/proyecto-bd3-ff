@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[9]:
+# In[1]:
 
 
 import pandas as pd
@@ -13,55 +13,58 @@ from coordenadas_a_cluster import *
 modelo = load_model("kmeans.21.3.joblib")
 
 
-# In[18]:
+# In[2]:
 
 
 #!wget https://www.dropbox.com/s/1wnnyvfof600y74/300107-0-agenda-actividades-eventos.csv
 #!ls -l
 
 
-# In[10]:
+# In[3]:
 
 
 eventos_df = pd.read_csv('300107-0-agenda-actividades-eventos.csv', encoding = 'ISO-8859-1', sep=';', engine='python')
 eventos_df.head(5)
 
 
-# In[11]:
+# In[4]:
 
 
 print(eventos_df.shape)
 eventos_reduced_df = eventos_df[['TITULO', 'GRATUITO', 'DIAS-SEMANA', 'FECHA', 'FECHA-FIN', 'HORA', 'LATITUD', 'LONGITUD']]
 
 
-# In[12]:
+# In[10]:
+
 
 
 eventos_reduced_df.tail(5)
 
 
-# In[13]:
+# In[17]:
 
 
 print('Limpiamos el dataset de elementos que no tengan los campos obligatorios')
 eventos_reduced_df = eventos_reduced_df.dropna(subset=['HORA', 'LATITUD', 'LONGITUD', 'FECHA', 'FECHA-FIN'])
+
+eventos_reduced_df = eventos_reduced_df.drop(eventos_reduced_df[eventos_reduced_df['HORA'] == '00:00'].index)
 eventos_reduced_df.tail(10)
 
 
-# In[14]:
+# In[18]:
 
 
 print(eventos_reduced_df.shape)
 
 
-# In[15]:
+# In[19]:
 
 
 eventos_reduced_df['FECHA'] = pd.to_datetime(eventos_reduced_df['FECHA'])
 eventos_reduced_df['FECHA-FIN'] = pd.to_datetime(eventos_reduced_df['FECHA-FIN'])
 
 
-# In[27]:
+# In[20]:
 
 
 
@@ -135,19 +138,19 @@ eventos_final_df = pd.DataFrame(eventos_final)
     
 
 
-# In[28]:
+# In[21]:
 
 
 eventos_final_df.shape
 
 
-# In[29]:
+# In[22]:
 
 
 eventos_final_df.head(5)
 
 
-# In[30]:
+# In[23]:
 
 
 eventos_final_df.tail(5)
