@@ -178,9 +178,9 @@ def clusterizar_gran_evento():
 
             near_clu = ' '.join([str(elem) for elem in lista_clusters_cercanos])
 
-            sql = f'UPDATE DatosGrandesEventos SET cluster = {main_cluster}, clusters_cercanos = {near_clu} ' \
+            sql = f'UPDATE DatosGrandesEventos SET cluster = {main_cluster}, clusters_cercanos = "{near_clu}" ' \
                   f'WHERE id = {id_evento};'
-
+            print(sql)
             cur.execute(sql)
 
             connection.commit()
