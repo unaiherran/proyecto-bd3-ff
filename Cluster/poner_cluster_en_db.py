@@ -185,7 +185,7 @@ def clusterizar_gran_evento():
 
             connection.commit()
 
-            print(id, cluster, longitud, latitud, cur.rowcount, "records affected")
+            print(id, main_cluster, near_clu, cur.rowcount, "records affected")
 
 
 def main():
