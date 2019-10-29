@@ -108,3 +108,4 @@ def clusterizar_camaras_csv():
 
 if __name__ == '__main__':
     modelo = clusterizar_camaras_csv()
+    clusterizar_camaras(modelo)
