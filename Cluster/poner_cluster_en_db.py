@@ -215,8 +215,6 @@ def tiempo_a_cluster():
             # Asignar
             print(f"Cluster {clu[0]} -> Estacion más cercana {estacion} a {distancia_estacion} m")
 
-clusters = [(1, Decimal('-3.54602500'), Decimal('40.06714000')), (2, Decimal('-3.61380900'), Decimal('41.00698500')), (3, Decimal('-3.76513500'), Decimal('40.69606800')), (4, Decimal('-3.55559300'), Decimal('40.46656000')), (5, Decimal('-3.72416700'), Decimal('40.45167000')), (6, Decimal('-3.67809500'), Decimal('40.41180400')), (7, Decimal('-4.14188300'), Decimal('40.70634000')), (8, Decimal('-4.01055600'), Decimal('40.79305600')), (9, Decimal('-4.24992700'), Decimal('40.42775000')), (10, Decimal('-3.58046700'), Decimal('41.13568500'))]
-    pass
 def main():
     pass
     # clusterizar_camaras()
