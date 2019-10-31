@@ -207,11 +207,11 @@ def tiempo_a_cluster():
             distancia_estacion = 999999
             estacion = 99
             coord_clu = (clu[1], clu[2])
-                for est in estaciones_tiempo:
-                    coord_est =(est[1], est[2])
-                    if geopy.distance.geodesic(coord_est, coord_clu).m < distancia_estacion:
-                        distancia_estacion = geopy.distance.geodesic(coord_est, coord_clu).m
-                        estacion = est[0]
+            for est in estaciones_tiempo:
+                coord_est =(est[1], est[2])
+                if geopy.distance.geodesic(coord_est, coord_clu).m < distancia_estacion:
+                    distancia_estacion = geopy.distance.geodesic(coord_est, coord_clu).m
+                    estacion = est[0]
             # Asignar
             print(f"Cluster {clu[0]} -> Estacion más cercana {estacion} a {distancia_estacion} m")
 
