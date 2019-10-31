@@ -213,7 +213,11 @@ def tiempo_a_cluster():
                     distancia_estacion = geopy.distance.geodesic(coord_est, coord_clu).m
                     estacion = est[0]
             # Asignar
+            sql = f'UPDATE Cluster SET meteo = {estacion} WHERE id_cluster = {clu[0]}'
+            cur.execute(sql)
+            connection.commit()
             print(f"Cluster {clu[0]} -> Estacion más cercana {estacion} a {distancia_estacion} m")
+
 
 def main():
     pass
