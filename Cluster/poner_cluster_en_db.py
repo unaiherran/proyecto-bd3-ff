@@ -88,7 +88,6 @@ def clusterizar_eventos():
             print(id, cluster, longitud, latitud, cur.rowcount, "records affected")
 
 
-
 def clusterizar_camaras():
     if connection.is_connected():
         cur = connection.cursor()
@@ -118,7 +117,6 @@ def contaminacion_a_cluster():
     if connection.is_connected():
         q = "SELECT id, longitud, latitud FROM contaminacion_estacion;"
         df = pd.read_sql(q, connection)
-        print(df.columns)
         X_contaminacion = df.drop(columns=['id']).values
         num_cluster_cont = 24
         random_state = 42
@@ -145,6 +143,7 @@ def contaminacion_a_cluster():
             connection.commit()
 
             print(id, sensor)
+
 
 def clusterizar_gran_evento():
     if connection.is_connected():
@@ -189,6 +188,30 @@ def clusterizar_gran_evento():
             print(id, main_cluster, near_clu, cur.rowcount, "records affected")
 
 
+def tiempo_a_cluster():
+    # leer todas las estaciones
+    if connection.is_connected():
+        cur = connection.cursor()
+        q = "SELECT id, longitud, latitud FROM EstacionTiempo;"
+        cur.execute(q)
+        estaciones_tiempo = cur.fetchall()
+
+        # leer todos los clusters
+        q = "SELECT id_cluster, longitud, latitud FROM Cluster;"
+        cur.execute(q)
+
+        clusters = cur.fetchall()
+
+        print(estaciones_tiempo)
+        print(clusters)
+
+        for clu in clusters:
+        # ver que estacion está más cerca de cada cluster
+            pass
+
+        # Asignar
+
+    pass
 def main():
     pass
     # clusterizar_camaras()
@@ -196,7 +219,7 @@ def main():
     # clusterizar_eventos()
     # contaminacion_a_cluster()
     # clusterizar_gran_evento()
-
+    tiempo_a_cluster()
 
 
 if __name__ == '__main__':
