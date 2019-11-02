@@ -137,7 +137,7 @@ def contaminacion_a_cluster():
 
             sensor = y_pred_contaminacion.predict(X=coordenadas.reshape(1, -1))[0]
 
-            sql = f'UPDATE Cluster SET contaminacion = {sensor} WHERE id_cluster = {id}'
+            sql = f'UPDATE Cluster SET cont_2 = {sensor} WHERE id_cluster = {id}'
             cur.execute(sql)
 
             connection.commit()
@@ -244,7 +244,7 @@ def contaminacion_a_cluster2():
                     distancia_estacion = geopy.distance.geodesic(coord_est, coord_clu).m
                     estacion = est[0]
             # Asignar
-            sql = f'UPDATE Cluster SET cont_2 = {estacion} WHERE id_cluster = {clu[0]}'
+            sql = f'UPDATE Cluster SET contaminacion = {estacion} WHERE id_cluster = {clu[0]}'
             cur.execute(sql)
             connection.commit()
             print(f"Cluster {clu[0]} -> Estacion más cercana {estacion} a {distancia_estacion} m")
@@ -256,7 +256,7 @@ def main():
     # clusterizar_camaras()
     # clusterizar_sensores()
     # clusterizar_eventos()
-    # contaminacion_a_cluster()
+    contaminacion_a_cluster()
     # clusterizar_gran_evento()
     # tiempo_a_cluster()
     contaminacion_a_cluster2()
