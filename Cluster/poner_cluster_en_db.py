@@ -219,6 +219,38 @@ def tiempo_a_cluster():
             print(f"Cluster {clu[0]} -> Estacion más cercana {estacion} a {distancia_estacion} m")
 
 
+def contaminacion_a_cluster2():
+    # leer todas las estaciones
+    if connection.is_connected():
+        cur = connection.cursor()
+        q = "SELECT id, longitud, latitud FROM contaminacion_estacion;"
+        cur.execute(q)
+        estaciones_contaminacion = cur.fetchall()
+
+        # leer todos los clusters
+        q = "SELECT id_cluster, longitud, latitud FROM Cluster;"
+        cur.execute(q)
+
+        clusters = cur.fetchall()
+
+        for clu in clusters:
+            # ver que estacion está más cerca de cada cluster
+            distancia_estacion = 999999
+            estacion = 99
+            coord_clu = (clu[1], clu[2])
+            for est in estaciones_contaminacion:
+                coord_est =(est[1], est[2])
+                if geopy.distance.geodesic(coord_est, coord_clu).m < distancia_estacion:
+                    distancia_estacion = geopy.distance.geodesic(coord_est, coord_clu).m
+                    estacion = est[0]
+            # Asignar
+            sql = f'UPDATE Cluster SET cont_2 = {estacion} WHERE id_cluster = {clu[0]}'
+            cur.execute(sql)
+            connection.commit()
+            print(f"Cluster {clu[0]} -> Estacion más cercana {estacion} a {distancia_estacion} m")
+
+
+
 def main():
     pass
     # clusterizar_camaras()
@@ -226,7 +258,9 @@ def main():
     # clusterizar_eventos()
     # contaminacion_a_cluster()
     # clusterizar_gran_evento()
-    tiempo_a_cluster()
+    # tiempo_a_cluster()
+    contaminacion_a_cluster2()
+
 
 
 if __name__ == '__main__':
