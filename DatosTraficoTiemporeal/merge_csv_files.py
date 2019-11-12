@@ -3,7 +3,9 @@ import logging
 import math
 import numbers
 import os
+import sys
 import time
+import traceback
 
 import mysql.connector
 import pandas as pd
@@ -33,7 +35,7 @@ def merge_data():
             try:
                 logging.info('Searching csv files ...')
                 extension = 'csv'
-                all_filenames = [i for i in glob.glob('*.{}'.format(extension))][:10]
+                all_filenames = [i for i in glob.glob('real_time*.{}'.format(extension))][:10]
                 logging.info(f'Found {len(all_filenames)} files')
                 logging.info(f'Files {all_filenames}')
 
@@ -57,26 +59,30 @@ def merge_data():
                     cursor = connection.cursor()
 
                     for index, row in combined_csv.iterrows():
-                        # print(row)
+                        try:
+                            # print(row)
 
-                        for k, v in row.items():
-                            if isinstance(v, numbers.Number) and math.isnan(v):
-                                row[k] = 0
+                            for k, v in row.items():
+                                if isinstance(v, numbers.Number) and math.isnan(v):
+                                    row[k] = 0
 
-                        if row.get("idelem") == 0 or row.get("idelem") >= 10495:
-                            continue
-                        row['dia_semana'] = str(row['dia_semana']).replace(".0", "")
-                        row['mes'] = str(row['mes']).replace(".0", "")
-                        row['hora'] = str(row['hora']).replace(".0", "")
-                        row['minutos'] = str(row['minutos']).replace(".0", "")
+                            if row.get("idelem", 0) == 0 or row.get("idelem", 0) >= 10495:
+                                continue
+                            row['dia_semana'] = str(row['dia_semana']).replace(".0", "")
+                            row['mes'] = str(row['mes']).replace(".0", "")
+                            row['hora'] = str(row['hora']).replace(".0", "")
+                            row['minutos'] = str(row['minutos']).replace(".0", "")
 
-                        sql = f'INSERT INTO DatosTrafico (id_sensor, fecha, intensidad, ocupacion, carga, nivelServicio, intensidadSat, \
-    error, subarea, st_x, st_y, dia_semana, mes, hora) VALUES({row.get("idelem")}, \'{row.get("fecha")}\', \
-    {row.get("intensidad")}, {row.get("ocupacion")}, {row.get("carga")}, {row.get("nivelServicio")}, \
-    {row.get("intensidadSat")}, \'{row.get("error")}\', {row.get("subarea")}, {row.get("st_x").replace(",", ".")}, {row.get("st_y").replace(",", ".")}, \
-    {row.get("dia_semana")}, {row.get("mes")}, {row.get("hora")}{row.get("minutos")});'
-                        logging.debug(sql)
-                        cursor.execute(sql)
+                            sql = f'INSERT INTO DatosTrafico (id_sensor, fecha, intensidad, ocupacion, carga, nivelServicio, intensidadSat, \
+        error, subarea, st_x, st_y, dia_semana, mes, hora) VALUES({row.get("idelem")}, \'{row.get("fecha")}\', \
+        {row.get("intensidad")}, {row.get("ocupacion")}, {row.get("carga")}, {row.get("nivelServicio")}, \
+        {row.get("intensidadSat")}, \'{row.get("error")}\', {row.get("subarea")}, {row.get("st_x").replace(",", ".")}, {row.get("st_y").replace(",", ".")}, \
+        {row.get("dia_semana")}, {row.get("mes")}, {row.get("hora")}{row.get("minutos")});'
+                            logging.debug(sql)
+                            cursor.execute(sql)
+                        except:
+                            # logging.exception()
+                            traceback.print_exc(file=sys.stdout)
                     # close the connection to the database.
                     cursor.close()
 
@@ -90,7 +96,8 @@ def merge_data():
                     # combined_csv.to_sql(con=connection, name='DatosTrafico', if_exists='replace')
                 connection.commit()
             except:
-                logging.exception()
+                # logging.exception()
+                traceback.print_exc(file=sys.stdout)
 
             logging.info('Waiting ...')
             time.sleep(60)
