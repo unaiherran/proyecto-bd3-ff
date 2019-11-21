@@ -159,7 +159,7 @@ def clusterizar_gran_evento():
     a los clusters cercanos"""
 
     if connection.is_connected():
-        distancia = 2000
+        distancia = 1500
 
         cur = connection.cursor()
         q = "SELECT id, longitud, latitud FROM DatosGrandesEventos;"
