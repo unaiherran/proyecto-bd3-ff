@@ -155,11 +155,11 @@ def contaminacion_a_cluster():
 
 def clusterizar_gran_evento():
     """Asigna cada gran evento a un cluster, y le pone tambien cuales son los clusters que estan a menos de
-    1000 metros de él. Se supone que un gran evento no sólo va a afectar al trafico de donde ocurre sino tambien
+    2000 metros de él. Se supone que un gran evento no sólo va a afectar al trafico de donde ocurre sino tambien
     a los clusters cercanos"""
 
     if connection.is_connected():
-        distancia = 1500
+        distancia = 2000
 
         cur = connection.cursor()
         q = "SELECT id, longitud, latitud FROM DatosGrandesEventos;"
@@ -268,18 +268,18 @@ def contaminacion_a_cluster2():
 
 
 def main():
-    poblar_cluster()
+    #poblar_cluster()
 
-    clusterizar_camaras()
+    #clusterizar_camaras()
 
-    clusterizar_sensores()
+    #clusterizar_sensores()
 
-    clusterizar_eventos()
+    #clusterizar_eventos()
     clusterizar_gran_evento()
 
-    tiempo_a_cluster()
+    #tiempo_a_cluster()
 
-    contaminacion_a_cluster2()
+    #contaminacion_a_cluster2()
 
 
 if __name__ == '__main__':
