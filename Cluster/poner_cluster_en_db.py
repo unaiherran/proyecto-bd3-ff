@@ -20,6 +20,8 @@ modelo = load_model("recluster.joblib")
 
 
 def poblar_cluster():
+    """Rellena la tabla de clusters con la coordenada del centroide del cluster"""
+
     lista = modelo.cluster_centers_.tolist()
 
     if connection.is_connected():
@@ -28,9 +30,6 @@ def poblar_cluster():
     for l in lista:
         longitud = l[0]
         latitud = l[1]
-
-        sql = f'INSERT INTO Cluster (id_cluster,longitud, latitud) values ' \
-                          f'({i}, {longitud}, {latitud});'
 
         sql = f'UPDATE Cluster SET longitud={longitud}, latitud={latitud} WHERE id_cluster={i}'
 
@@ -41,6 +40,8 @@ def poblar_cluster():
 
 
 def clusterizar_sensores():
+    """Asigna cada sensor a un cluster"""
+
     if connection.is_connected():
         cur = connection.cursor()
         q = "SELECT id, longitud, latitud FROM SensoresTrafico;"
@@ -66,6 +67,8 @@ def clusterizar_sensores():
 
 
 def clusterizar_eventos():
+    """Asigna cada evento a un cluster"""
+
     if connection.is_connected():
         cur = connection.cursor()
         q = "SELECT id, longitud, latitud FROM DatosEventos;"
@@ -91,6 +94,7 @@ def clusterizar_eventos():
 
 
 def clusterizar_camaras():
+    """Asigna cada camara a un cluster"""
     if connection.is_connected():
         cur = connection.cursor()
         q = "SELECT * FROM CamarasTrafico;"
@@ -148,6 +152,10 @@ def contaminacion_a_cluster():
 
 
 def clusterizar_gran_evento():
+    """Asigna cada gran evento a un cluster, y le pone tambien cuales son los clusters que estan a menos de
+    1000 metros de él. Se supone que un gran evento no sólo va a afectar al trafico de donde ocurre sino tambien
+    a los clusters cercanos"""
+
     if connection.is_connected():
         distancia = 1000
 
@@ -254,13 +262,13 @@ def contaminacion_a_cluster2():
 
 def main():
     poblar_cluster()
-    # clusterizar_camaras()
-    # clusterizar_sensores()
-    # clusterizar_eventos()
-    # contaminacion_a_cluster()
-    # clusterizar_gran_evento()
-    # tiempo_a_cluster()
-    # contaminacion_a_cluster2()
+    clusterizar_camaras()
+    clusterizar_sensores()
+    clusterizar_eventos()
+    contaminacion_a_cluster()
+    clusterizar_gran_evento()
+    tiempo_a_cluster()
+    contaminacion_a_cluster2()
 
 
 if __name__ == '__main__':
