@@ -253,13 +253,13 @@ def contaminacion_a_cluster2():
 
 def main():
     pass
-    # clusterizar_camaras()
-    # clusterizar_sensores()
-    # clusterizar_eventos()
-    # contaminacion_a_cluster()
+    clusterizar_camaras()
+    clusterizar_sensores()
+    clusterizar_eventos()
+    contaminacion_a_cluster()
     clusterizar_gran_evento()
-    # tiempo_a_cluster()
-    # contaminacion_a_cluster2()
+    tiempo_a_cluster()
+    contaminacion_a_cluster2()
 
 
 
