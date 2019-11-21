@@ -5,8 +5,8 @@ import pandas as pd
 
 
 def crear_modelo(filename, num_cluster=200):
-    camaras = pd.read_csv("CoordCamaras.csv", sep=",")
-    sensores = pd.read_csv("CoordSensores.csv", sep=",")
+    camaras = pd.read_csv("coordCamaras.csv", sep=",")
+    sensores = pd.read_csv("coordSensores.csv", sep=",")
     sensores['tipo'] = 0
     camaras['tipo'] = 1
     camaras.columns = ['id', 'longitud', 'latitud', 'tipo']
