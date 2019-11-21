@@ -4,23 +4,34 @@ from sklearn.cluster import KMeans
 import pandas as pd
 
 
-def crear_modelo(filename):
+def crear_modelo(filename, num_cluster=200):
     camaras = pd.read_csv("CoordCamaras.csv", sep=",")
     sensores = pd.read_csv("CoordSensores.csv", sep=",")
     sensores['tipo'] = 0
     camaras['tipo'] = 1
     camaras.columns = ['id', 'longitud', 'latitud', 'tipo']
-    #todo = pd.concat([camaras, sensores], sort=False)
-    todo = camaras
+    todo = pd.concat([camaras, sensores], sort=False)
+    # todo = camaras
 
     X_todo = todo.drop(columns=['id', 'tipo']).values
 
-    num_cluster = 200
     random_state = 42
 
     kmeans = KMeans(n_clusters=num_cluster, random_state=random_state)
 
     kmeans.fit(X=X_todo)
+
+    cluster = list(range(num_cluster))
+    lista = kmeans.cluster_centers_.tolist()
+
+    res = [[i for i, j in lista],
+           [j for i, j in lista]]
+
+    df3 = pd.DataFrame(list(zip(cluster, res[0], res[1])),
+                       columns=['id_cluster', 'longitud', 'latitud'
+                                ])
+    name = 'todo_' + str(num_cluster)+'.csv'
+    # df3.to_csv(name)
 
     pickle_out = open(filename, "wb")
     pickle.dump(kmeans, pickle_out)
@@ -47,6 +58,8 @@ def coordenadas_a_cluster(longitud, latitud, modelo):
     return modelo.predict(X=coordenadas.reshape(1, -1))[0]
 
 
+
+
 def main():
     # Uso:
     # cargar el modelo con load_model
@@ -64,4 +77,4 @@ def main():
 
 
 if __name__ == '__main__':
-    crear_modelo('recluster.joblib')
+    crear_modelo('recluster.joblib', 200)

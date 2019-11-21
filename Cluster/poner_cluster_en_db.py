@@ -256,10 +256,10 @@ def main():
     # clusterizar_camaras()
     # clusterizar_sensores()
     # clusterizar_eventos()
-    contaminacion_a_cluster()
-    # clusterizar_gran_evento()
+    # contaminacion_a_cluster()
+    clusterizar_gran_evento()
     # tiempo_a_cluster()
-    contaminacion_a_cluster2()
+    # contaminacion_a_cluster2()
 
 
 
