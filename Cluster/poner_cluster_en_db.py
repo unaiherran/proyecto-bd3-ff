@@ -251,13 +251,14 @@ def contaminacion_a_cluster2():
 
 
 def main():
-    clusterizar_camaras()
-    clusterizar_sensores()
-    clusterizar_eventos()
-    contaminacion_a_cluster()
-    clusterizar_gran_evento()
-    tiempo_a_cluster()
-    contaminacion_a_cluster2()
+    poblar_cluster()
+    # clusterizar_camaras()
+    # clusterizar_sensores()
+    # clusterizar_eventos()
+    # contaminacion_a_cluster()
+    # clusterizar_gran_evento()
+    # tiempo_a_cluster()
+    # contaminacion_a_cluster2()
 
 
 if __name__ == '__main__':
