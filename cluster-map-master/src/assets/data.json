@@ -1,0 +1,1604 @@
+{
+    "Cluster": [
+        {
+            "id_cluster": 0,
+            "longitud": -3.61546858,
+            "latitud": 40.46379440,
+            "contaminacion": 23,
+            "meteo": 4,
+            "cont_2": 15
+        },
+        {
+            "id_cluster": 1,
+            "longitud": -3.69905617,
+            "latitud": 40.41824284,
+            "contaminacion": 9,
+            "meteo": 6,
+            "cont_2": 22
+        },
+        {
+            "id_cluster": 2,
+            "longitud": -3.72759054,
+            "latitud": 40.47283102,
+            "contaminacion": 12,
+            "meteo": 5,
+            "cont_2": 5
+        },
+        {
+            "id_cluster": 3,
+            "longitud": -3.62484594,
+            "latitud": 40.38239928,
+            "contaminacion": 18,
+            "meteo": 6,
+            "cont_2": 4
+        },
+        {
+            "id_cluster": 4,
+            "longitud": -3.69402554,
+            "latitud": 40.48590470,
+            "contaminacion": 24,
+            "meteo": 5,
+            "cont_2": 16
+        },
+        {
+            "id_cluster": 5,
+            "longitud": -3.76556744,
+            "latitud": 40.37305566,
+            "contaminacion": 6,
+            "meteo": 5,
+            "cont_2": 20
+        },
+        {
+            "id_cluster": 6,
+            "longitud": -3.64550972,
+            "latitud": 40.42834231,
+            "contaminacion": 4,
+            "meteo": 6,
+            "cont_2": 2
+        },
+        {
+            "id_cluster": 7,
+            "longitud": -3.71519149,
+            "latitud": 40.39921841,
+            "contaminacion": 20,
+            "meteo": 6,
+            "cont_2": 7
+        },
+        {
+            "id_cluster": 8,
+            "longitud": -3.66549468,
+            "latitud": 40.46035256,
+            "contaminacion": 3,
+            "meteo": 6,
+            "cont_2": 19
+        },
+        {
+            "id_cluster": 9,
+            "longitud": -3.67848113,
+            "latitud": 40.39402500,
+            "contaminacion": 14,
+            "meteo": 6,
+            "cont_2": 9
+        },
+        {
+            "id_cluster": 10,
+            "longitud": -3.71526965,
+            "latitud": 40.43912507,
+            "contaminacion": 11,
+            "meteo": 5,
+            "cont_2": 18
+        },
+        {
+            "id_cluster": 11,
+            "longitud": -3.67432119,
+            "latitud": 40.43577744,
+            "contaminacion": 3,
+            "meteo": 6,
+            "cont_2": 19
+        },
+        {
+            "id_cluster": 12,
+            "longitud": -3.65895590,
+            "latitud": 40.50223830,
+            "contaminacion": 21,
+            "meteo": 5,
+            "cont_2": 1
+        },
+        {
+            "id_cluster": 13,
+            "longitud": -3.67515524,
+            "latitud": 40.34884445,
+            "contaminacion": 5,
+            "meteo": 6,
+            "cont_2": 12
+        },
+        {
+            "id_cluster": 14,
+            "longitud": -3.61213582,
+            "latitud": 40.42168860,
+            "contaminacion": 4,
+            "meteo": 6,
+            "cont_2": 2
+        },
+        {
+            "id_cluster": 15,
+            "longitud": -3.77930603,
+            "latitud": 40.46290593,
+            "contaminacion": 7,
+            "meteo": 5,
+            "cont_2": 0
+        },
+        {
+            "id_cluster": 16,
+            "longitud": -3.74212856,
+            "latitud": 40.37303432,
+            "contaminacion": 6,
+            "meteo": 6,
+            "cont_2": 20
+        },
+        {
+            "id_cluster": 17,
+            "longitud": -3.65624784,
+            "latitud": 40.42253651,
+            "contaminacion": 10,
+            "meteo": 6,
+            "cont_2": 11
+        },
+        {
+            "id_cluster": 18,
+            "longitud": -3.69757016,
+            "latitud": 40.38660229,
+            "contaminacion": 14,
+            "meteo": 6,
+            "cont_2": 9
+        },
+        {
+            "id_cluster": 19,
+            "longitud": -3.70166784,
+            "latitud": 40.45742075,
+            "contaminacion": 11,
+            "meteo": 5,
+            "cont_2": 18
+        },
+        {
+            "id_cluster": 20,
+            "longitud": -3.58143004,
+            "latitud": 40.46916078,
+            "contaminacion": 19,
+            "meteo": 4,
+            "cont_2": 21
+        },
+        {
+            "id_cluster": 21,
+            "longitud": -3.71992556,
+            "latitud": 40.42027268,
+            "contaminacion": 1,
+            "meteo": 5,
+            "cont_2": 3
+        },
+        {
+            "id_cluster": 22,
+            "longitud": -3.59159438,
+            "latitud": 40.35990039,
+            "contaminacion": 18,
+            "meteo": 6,
+            "cont_2": 4
+        },
+        {
+            "id_cluster": 23,
+            "longitud": -3.71302900,
+            "latitud": 40.48024499,
+            "contaminacion": 12,
+            "meteo": 5,
+            "cont_2": 5
+        },
+        {
+            "id_cluster": 24,
+            "longitud": -3.64713300,
+            "latitud": 40.39894796,
+            "contaminacion": 10,
+            "meteo": 6,
+            "cont_2": 11
+        },
+        {
+            "id_cluster": 25,
+            "longitud": -3.71978995,
+            "latitud": 40.37177909,
+            "contaminacion": 20,
+            "meteo": 6,
+            "cont_2": 7
+        },
+        {
+            "id_cluster": 26,
+            "longitud": -3.68075224,
+            "latitud": 40.48326961,
+            "contaminacion": 17,
+            "meteo": 5,
+            "cont_2": 10
+        },
+        {
+            "id_cluster": 27,
+            "longitud": -3.66596034,
+            "latitud": 40.40556718,
+            "contaminacion": 16,
+            "meteo": 6,
+            "cont_2": 23
+        },
+        {
+            "id_cluster": 28,
+            "longitud": -3.77280924,
+            "latitud": 40.39526996,
+            "contaminacion": 7,
+            "meteo": 5,
+            "cont_2": 0
+        },
+        {
+            "id_cluster": 29,
+            "longitud": -3.69125274,
+            "latitud": 40.43974359,
+            "contaminacion": 15,
+            "meteo": 6,
+            "cont_2": 13
+        },
+        {
+            "id_cluster": 30,
+            "longitud": -3.68637846,
+            "latitud": 40.49918429,
+            "contaminacion": 24,
+            "meteo": 5,
+            "cont_2": 16
+        },
+        {
+            "id_cluster": 31,
+            "longitud": -3.65898088,
+            "latitud": 40.48694664,
+            "contaminacion": 21,
+            "meteo": 5,
+            "cont_2": 1
+        },
+        {
+            "id_cluster": 32,
+            "longitud": -3.66371261,
+            "latitud": 40.36777731,
+            "contaminacion": 13,
+            "meteo": 6,
+            "cont_2": 17
+        },
+        {
+            "id_cluster": 33,
+            "longitud": -3.69289139,
+            "latitud": 40.35161565,
+            "contaminacion": 5,
+            "meteo": 6,
+            "cont_2": 12
+        },
+        {
+            "id_cluster": 34,
+            "longitud": -3.68178234,
+            "latitud": 40.42984637,
+            "contaminacion": 2,
+            "meteo": 6,
+            "cont_2": 14
+        },
+        {
+            "id_cluster": 35,
+            "longitud": -3.63537557,
+            "latitud": 40.46266786,
+            "contaminacion": 23,
+            "meteo": 6,
+            "cont_2": 15
+        },
+        {
+            "id_cluster": 36,
+            "longitud": -3.59509639,
+            "latitud": 40.40380518,
+            "contaminacion": 18,
+            "meteo": 4,
+            "cont_2": 4
+        },
+        {
+            "id_cluster": 37,
+            "longitud": -3.62356284,
+            "latitud": 40.44195192,
+            "contaminacion": 4,
+            "meteo": 6,
+            "cont_2": 2
+        },
+        {
+            "id_cluster": 38,
+            "longitud": -3.69183331,
+            "latitud": 40.40796983,
+            "contaminacion": 14,
+            "meteo": 6,
+            "cont_2": 9
+        },
+        {
+            "id_cluster": 39,
+            "longitud": -3.73683595,
+            "latitud": 40.43438447,
+            "contaminacion": 7,
+            "meteo": 5,
+            "cont_2": 0
+        },
+        {
+            "id_cluster": 40,
+            "longitud": -3.66135900,
+            "latitud": 40.43144847,
+            "contaminacion": 2,
+            "meteo": 6,
+            "cont_2": 14
+        },
+        {
+            "id_cluster": 41,
+            "longitud": -3.75042424,
+            "latitud": 40.46896558,
+            "contaminacion": 12,
+            "meteo": 5,
+            "cont_2": 5
+        },
+        {
+            "id_cluster": 42,
+            "longitud": -3.69023949,
+            "latitud": 40.45906418,
+            "contaminacion": 17,
+            "meteo": 5,
+            "cont_2": 10
+        },
+        {
+            "id_cluster": 43,
+            "longitud": -3.67756865,
+            "latitud": 40.45016203,
+            "contaminacion": 3,
+            "meteo": 6,
+            "cont_2": 19
+        },
+        {
+            "id_cluster": 44,
+            "longitud": -3.61173227,
+            "latitud": 40.36958633,
+            "contaminacion": 18,
+            "meteo": 6,
+            "cont_2": 4
+        },
+        {
+            "id_cluster": 45,
+            "longitud": -3.73178741,
+            "latitud": 40.38840809,
+            "contaminacion": 6,
+            "meteo": 6,
+            "cont_2": 20
+        },
+        {
+            "id_cluster": 46,
+            "longitud": -3.70441422,
+            "latitud": 40.43360967,
+            "contaminacion": 11,
+            "meteo": 5,
+            "cont_2": 18
+        },
+        {
+            "id_cluster": 47,
+            "longitud": -3.62756168,
+            "latitud": 40.41437425,
+            "contaminacion": 10,
+            "meteo": 6,
+            "cont_2": 11
+        },
+        {
+            "id_cluster": 48,
+            "longitud": -3.72684355,
+            "latitud": 40.42395692,
+            "contaminacion": 1,
+            "meteo": 5,
+            "cont_2": 3
+        },
+        {
+            "id_cluster": 49,
+            "longitud": -3.58289089,
+            "latitud": 40.44457861,
+            "contaminacion": 19,
+            "meteo": 4,
+            "cont_2": 21
+        },
+        {
+            "id_cluster": 50,
+            "longitud": -3.71242897,
+            "latitud": 40.40818131,
+            "contaminacion": 9,
+            "meteo": 6,
+            "cont_2": 22
+        },
+        {
+            "id_cluster": 51,
+            "longitud": -3.65298654,
+            "latitud": 40.38134887,
+            "contaminacion": 13,
+            "meteo": 6,
+            "cont_2": 17
+        },
+        {
+            "id_cluster": 52,
+            "longitud": -3.67481224,
+            "latitud": 40.47207244,
+            "contaminacion": 17,
+            "meteo": 5,
+            "cont_2": 10
+        },
+        {
+            "id_cluster": 53,
+            "longitud": -3.71211253,
+            "latitud": 40.38512685,
+            "contaminacion": 20,
+            "meteo": 6,
+            "cont_2": 7
+        },
+        {
+            "id_cluster": 54,
+            "longitud": -3.75639525,
+            "latitud": 40.39799365,
+            "contaminacion": 7,
+            "meteo": 5,
+            "cont_2": 0
+        },
+        {
+            "id_cluster": 55,
+            "longitud": -3.69026371,
+            "latitud": 40.42281935,
+            "contaminacion": 2,
+            "meteo": 6,
+            "cont_2": 14
+        },
+        {
+            "id_cluster": 56,
+            "longitud": -3.65176500,
+            "latitud": 40.45016359,
+            "contaminacion": 4,
+            "meteo": 6,
+            "cont_2": 2
+        },
+        {
+            "id_cluster": 57,
+            "longitud": -3.68571300,
+            "latitud": 40.51635871,
+            "contaminacion": 24,
+            "meteo": 5,
+            "cont_2": 16
+        },
+        {
+            "id_cluster": 58,
+            "longitud": -3.74577672,
+            "latitud": 40.38600805,
+            "contaminacion": 6,
+            "meteo": 5,
+            "cont_2": 20
+        },
+        {
+            "id_cluster": 59,
+            "longitud": -3.67860762,
+            "latitud": 40.40783555,
+            "contaminacion": 16,
+            "meteo": 6,
+            "cont_2": 23
+        },
+        {
+            "id_cluster": 60,
+            "longitud": -3.68921600,
+            "latitud": 40.47592057,
+            "contaminacion": 17,
+            "meteo": 5,
+            "cont_2": 10
+        },
+        {
+            "id_cluster": 61,
+            "longitud": -3.73862207,
+            "latitud": 40.40994317,
+            "contaminacion": 7,
+            "meteo": 5,
+            "cont_2": 0
+        },
+        {
+            "id_cluster": 62,
+            "longitud": -3.70075756,
+            "latitud": 40.39934270,
+            "contaminacion": 14,
+            "meteo": 6,
+            "cont_2": 9
+        },
+        {
+            "id_cluster": 63,
+            "longitud": -3.71187932,
+            "latitud": 40.42260595,
+            "contaminacion": 1,
+            "meteo": 5,
+            "cont_2": 3
+        },
+        {
+            "id_cluster": 64,
+            "longitud": -3.69436528,
+            "latitud": 40.37082113,
+            "contaminacion": 20,
+            "meteo": 6,
+            "cont_2": 7
+        },
+        {
+            "id_cluster": 65,
+            "longitud": -3.66749691,
+            "latitud": 40.49652229,
+            "contaminacion": 21,
+            "meteo": 5,
+            "cont_2": 1
+        },
+        {
+            "id_cluster": 66,
+            "longitud": -3.66361482,
+            "latitud": 40.38211970,
+            "contaminacion": 13,
+            "meteo": 6,
+            "cont_2": 17
+        },
+        {
+            "id_cluster": 67,
+            "longitud": -3.72804792,
+            "latitud": 40.44814472,
+            "contaminacion": 11,
+            "meteo": 5,
+            "cont_2": 18
+        },
+        {
+            "id_cluster": 68,
+            "longitud": -3.67738323,
+            "latitud": 40.42275789,
+            "contaminacion": 2,
+            "meteo": 6,
+            "cont_2": 14
+        },
+        {
+            "id_cluster": 69,
+            "longitud": -3.72397243,
+            "latitud": 40.49182389,
+            "contaminacion": 12,
+            "meteo": 5,
+            "cont_2": 5
+        },
+        {
+            "id_cluster": 70,
+            "longitud": -3.61491934,
+            "latitud": 40.38678012,
+            "contaminacion": 18,
+            "meteo": 6,
+            "cont_2": 4
+        },
+        {
+            "id_cluster": 71,
+            "longitud": -3.70399520,
+            "latitud": 40.44219768,
+            "contaminacion": 11,
+            "meteo": 5,
+            "cont_2": 18
+        },
+        {
+            "id_cluster": 72,
+            "longitud": -3.65791036,
+            "latitud": 40.47100812,
+            "contaminacion": 21,
+            "meteo": 6,
+            "cont_2": 1
+        },
+        {
+            "id_cluster": 73,
+            "longitud": -3.75388390,
+            "latitud": 40.36207574,
+            "contaminacion": 6,
+            "meteo": 6,
+            "cont_2": 20
+        },
+        {
+            "id_cluster": 74,
+            "longitud": -3.63317116,
+            "latitud": 40.43365092,
+            "contaminacion": 4,
+            "meteo": 6,
+            "cont_2": 2
+        },
+        {
+            "id_cluster": 75,
+            "longitud": -3.60858176,
+            "latitud": 40.44922002,
+            "contaminacion": 23,
+            "meteo": 4,
+            "cont_2": 15
+        },
+        {
+            "id_cluster": 76,
+            "longitud": -3.68729909,
+            "latitud": 40.38154871,
+            "contaminacion": 14,
+            "meteo": 6,
+            "cont_2": 9
+        },
+        {
+            "id_cluster": 77,
+            "longitud": -3.60931268,
+            "latitud": 40.43502554,
+            "contaminacion": 23,
+            "meteo": 4,
+            "cont_2": 15
+        },
+        {
+            "id_cluster": 78,
+            "longitud": -3.59306512,
+            "latitud": 40.46054054,
+            "contaminacion": 19,
+            "meteo": 4,
+            "cont_2": 21
+        },
+        {
+            "id_cluster": 79,
+            "longitud": -3.65834888,
+            "latitud": 40.44276136,
+            "contaminacion": 4,
+            "meteo": 6,
+            "cont_2": 2
+        },
+        {
+            "id_cluster": 80,
+            "longitud": -3.72245158,
+            "latitud": 40.40413507,
+            "contaminacion": 6,
+            "meteo": 6,
+            "cont_2": 20
+        },
+        {
+            "id_cluster": 81,
+            "longitud": -3.70435461,
+            "latitud": 40.48067520,
+            "contaminacion": 12,
+            "meteo": 5,
+            "cont_2": 5
+        },
+        {
+            "id_cluster": 82,
+            "longitud": -3.65280015,
+            "latitud": 40.40499850,
+            "contaminacion": 10,
+            "meteo": 6,
+            "cont_2": 11
+        },
+        {
+            "id_cluster": 83,
+            "longitud": -3.64659857,
+            "latitud": 40.46840810,
+            "contaminacion": 21,
+            "meteo": 6,
+            "cont_2": 2
+        },
+        {
+            "id_cluster": 84,
+            "longitud": -3.72199355,
+            "latitud": 40.42875409,
+            "contaminacion": 1,
+            "meteo": 5,
+            "cont_2": 3
+        },
+        {
+            "id_cluster": 85,
+            "longitud": -3.76164998,
+            "latitud": 40.38570426,
+            "contaminacion": 6,
+            "meteo": 5,
+            "cont_2": 20
+        },
+        {
+            "id_cluster": 86,
+            "longitud": -3.70583891,
+            "latitud": 40.34980423,
+            "contaminacion": 5,
+            "meteo": 6,
+            "cont_2": 12
+        },
+        {
+            "id_cluster": 87,
+            "longitud": -3.77647693,
+            "latitud": 40.37485235,
+            "contaminacion": 6,
+            "meteo": 5,
+            "cont_2": 20
+        },
+        {
+            "id_cluster": 88,
+            "longitud": -3.66881268,
+            "latitud": 40.42626815,
+            "contaminacion": 2,
+            "meteo": 6,
+            "cont_2": 14
+        },
+        {
+            "id_cluster": 89,
+            "longitud": -3.64013453,
+            "latitud": 40.39439238,
+            "contaminacion": 13,
+            "meteo": 6,
+            "cont_2": 17
+        },
+        {
+            "id_cluster": 90,
+            "longitud": -3.69280150,
+            "latitud": 40.34146308,
+            "contaminacion": 5,
+            "meteo": 6,
+            "cont_2": 12
+        },
+        {
+            "id_cluster": 91,
+            "longitud": -3.66798728,
+            "latitud": 40.39916230,
+            "contaminacion": 14,
+            "meteo": 6,
+            "cont_2": 9
+        },
+        {
+            "id_cluster": 92,
+            "longitud": -3.74152942,
+            "latitud": 40.44883477,
+            "contaminacion": 7,
+            "meteo": 5,
+            "cont_2": 0
+        },
+        {
+            "id_cluster": 93,
+            "longitud": -3.67798992,
+            "latitud": 40.50818710,
+            "contaminacion": 24,
+            "meteo": 5,
+            "cont_2": 16
+        },
+        {
+            "id_cluster": 94,
+            "longitud": -3.72450162,
+            "latitud": 40.41392072,
+            "contaminacion": 1,
+            "meteo": 5,
+            "cont_2": 3
+        },
+        {
+            "id_cluster": 95,
+            "longitud": -3.77944276,
+            "latitud": 40.45252485,
+            "contaminacion": 7,
+            "meteo": 5,
+            "cont_2": 0
+        },
+        {
+            "id_cluster": 96,
+            "longitud": -3.71316874,
+            "latitud": 40.41777626,
+            "contaminacion": 1,
+            "meteo": 6,
+            "cont_2": 3
+        },
+        {
+            "id_cluster": 97,
+            "longitud": -3.76512717,
+            "latitud": 40.39960854,
+            "contaminacion": 7,
+            "meteo": 5,
+            "cont_2": 0
+        },
+        {
+            "id_cluster": 98,
+            "longitud": -3.62263707,
+            "latitud": 40.45445904,
+            "contaminacion": 23,
+            "meteo": 4,
+            "cont_2": 15
+        },
+        {
+            "id_cluster": 99,
+            "longitud": -3.65670232,
+            "latitud": 40.41059796,
+            "contaminacion": 10,
+            "meteo": 6,
+            "cont_2": 11
+        },
+        {
+            "id_cluster": 100,
+            "longitud": -3.67954194,
+            "latitud": 40.37153426,
+            "contaminacion": 14,
+            "meteo": 6,
+            "cont_2": 9
+        },
+        {
+            "id_cluster": 101,
+            "longitud": -3.71668903,
+            "latitud": 40.42898425,
+            "contaminacion": 1,
+            "meteo": 5,
+            "cont_2": 3
+        },
+        {
+            "id_cluster": 102,
+            "longitud": -3.70807139,
+            "latitud": 40.39191535,
+            "contaminacion": 20,
+            "meteo": 6,
+            "cont_2": 7
+        },
+        {
+            "id_cluster": 103,
+            "longitud": -3.69275734,
+            "latitud": 40.45218527,
+            "contaminacion": 15,
+            "meteo": 5,
+            "cont_2": 13
+        },
+        {
+            "id_cluster": 104,
+            "longitud": -3.64409282,
+            "latitud": 40.45763241,
+            "contaminacion": 4,
+            "meteo": 6,
+            "cont_2": 2
+        },
+        {
+            "id_cluster": 105,
+            "longitud": -3.69766785,
+            "latitud": 40.50257160,
+            "contaminacion": 24,
+            "meteo": 5,
+            "cont_2": 16
+        },
+        {
+            "id_cluster": 106,
+            "longitud": -3.64969150,
+            "latitud": 40.48540343,
+            "contaminacion": 21,
+            "meteo": 6,
+            "cont_2": 1
+        },
+        {
+            "id_cluster": 107,
+            "longitud": -3.66735050,
+            "latitud": 40.44349171,
+            "contaminacion": 3,
+            "meteo": 6,
+            "cont_2": 19
+        },
+        {
+            "id_cluster": 108,
+            "longitud": -3.61953873,
+            "latitud": 40.39720619,
+            "contaminacion": 18,
+            "meteo": 6,
+            "cont_2": 4
+        },
+        {
+            "id_cluster": 109,
+            "longitud": -3.60979588,
+            "latitud": 40.40981359,
+            "contaminacion": 10,
+            "meteo": 6,
+            "cont_2": 11
+        },
+        {
+            "id_cluster": 110,
+            "longitud": -3.74239028,
+            "latitud": 40.36576854,
+            "contaminacion": 20,
+            "meteo": 6,
+            "cont_2": 7
+        },
+        {
+            "id_cluster": 111,
+            "longitud": -3.69485502,
+            "latitud": 40.39279843,
+            "contaminacion": 14,
+            "meteo": 6,
+            "cont_2": 9
+        },
+        {
+            "id_cluster": 112,
+            "longitud": -3.65380698,
+            "latitud": 40.39163817,
+            "contaminacion": 13,
+            "meteo": 6,
+            "cont_2": 17
+        },
+        {
+            "id_cluster": 113,
+            "longitud": -3.67887310,
+            "latitud": 40.44142813,
+            "contaminacion": 3,
+            "meteo": 6,
+            "cont_2": 19
+        },
+        {
+            "id_cluster": 114,
+            "longitud": -3.71180572,
+            "latitud": 40.47110785,
+            "contaminacion": 12,
+            "meteo": 5,
+            "cont_2": 5
+        },
+        {
+            "id_cluster": 115,
+            "longitud": -3.69123400,
+            "latitud": 40.44647319,
+            "contaminacion": 15,
+            "meteo": 5,
+            "cont_2": 13
+        },
+        {
+            "id_cluster": 116,
+            "longitud": -3.63038754,
+            "latitud": 40.37698744,
+            "contaminacion": 18,
+            "meteo": 6,
+            "cont_2": 4
+        },
+        {
+            "id_cluster": 117,
+            "longitud": -3.66690237,
+            "latitud": 40.51098974,
+            "contaminacion": 21,
+            "meteo": 5,
+            "cont_2": 1
+        },
+        {
+            "id_cluster": 118,
+            "longitud": -3.66692995,
+            "latitud": 40.45057736,
+            "contaminacion": 3,
+            "meteo": 6,
+            "cont_2": 19
+        },
+        {
+            "id_cluster": 119,
+            "longitud": -3.62831822,
+            "latitud": 40.42450266,
+            "contaminacion": 4,
+            "meteo": 6,
+            "cont_2": 2
+        },
+        {
+            "id_cluster": 120,
+            "longitud": -3.60396398,
+            "latitud": 40.42402007,
+            "contaminacion": 4,
+            "meteo": 4,
+            "cont_2": 15
+        },
+        {
+            "id_cluster": 121,
+            "longitud": -3.68616470,
+            "latitud": 40.49103288,
+            "contaminacion": 24,
+            "meteo": 5,
+            "cont_2": 16
+        },
+        {
+            "id_cluster": 122,
+            "longitud": -3.66760934,
+            "latitud": 40.46677934,
+            "contaminacion": 3,
+            "meteo": 6,
+            "cont_2": 19
+        },
+        {
+            "id_cluster": 123,
+            "longitud": -3.72040290,
+            "latitud": 40.47375384,
+            "contaminacion": 12,
+            "meteo": 5,
+            "cont_2": 5
+        },
+        {
+            "id_cluster": 124,
+            "longitud": -3.73604830,
+            "latitud": 40.47307093,
+            "contaminacion": 12,
+            "meteo": 5,
+            "cont_2": 5
+        },
+        {
+            "id_cluster": 125,
+            "longitud": -3.77740039,
+            "latitud": 40.36426151,
+            "contaminacion": 6,
+            "meteo": 5,
+            "cont_2": 20
+        },
+        {
+            "id_cluster": 126,
+            "longitud": -3.72048880,
+            "latitud": 40.43616500,
+            "contaminacion": 1,
+            "meteo": 5,
+            "cont_2": 3
+        },
+        {
+            "id_cluster": 127,
+            "longitud": -3.68928723,
+            "latitud": 40.46591999,
+            "contaminacion": 17,
+            "meteo": 5,
+            "cont_2": 10
+        },
+        {
+            "id_cluster": 128,
+            "longitud": -3.68419311,
+            "latitud": 40.42372408,
+            "contaminacion": 2,
+            "meteo": 6,
+            "cont_2": 14
+        },
+        {
+            "id_cluster": 129,
+            "longitud": -3.65591623,
+            "latitud": 40.43461273,
+            "contaminacion": 4,
+            "meteo": 6,
+            "cont_2": 2
+        },
+        {
+            "id_cluster": 130,
+            "longitud": -3.74990065,
+            "latitud": 40.37650059,
+            "contaminacion": 6,
+            "meteo": 5,
+            "cont_2": 20
+        },
+        {
+            "id_cluster": 131,
+            "longitud": -3.73384844,
+            "latitud": 40.37379969,
+            "contaminacion": 20,
+            "meteo": 6,
+            "cont_2": 7
+        },
+        {
+            "id_cluster": 132,
+            "longitud": -3.71141074,
+            "latitud": 40.45747647,
+            "contaminacion": 11,
+            "meteo": 5,
+            "cont_2": 18
+        },
+        {
+            "id_cluster": 133,
+            "longitud": -3.65641826,
+            "latitud": 40.45575856,
+            "contaminacion": 3,
+            "meteo": 6,
+            "cont_2": 19
+        },
+        {
+            "id_cluster": 134,
+            "longitud": -3.67383488,
+            "latitud": 40.48425021,
+            "contaminacion": 21,
+            "meteo": 5,
+            "cont_2": 1
+        },
+        {
+            "id_cluster": 135,
+            "longitud": -3.71630493,
+            "latitud": 40.49063551,
+            "contaminacion": 12,
+            "meteo": 5,
+            "cont_2": 5
+        },
+        {
+            "id_cluster": 136,
+            "longitud": -3.70220739,
+            "latitud": 40.47384037,
+            "contaminacion": 12,
+            "meteo": 5,
+            "cont_2": 5
+        },
+        {
+            "id_cluster": 137,
+            "longitud": -3.60304125,
+            "latitud": 40.39924406,
+            "contaminacion": 18,
+            "meteo": 6,
+            "cont_2": 4
+        },
+        {
+            "id_cluster": 138,
+            "longitud": -3.72355767,
+            "latitud": 40.39354310,
+            "contaminacion": 6,
+            "meteo": 6,
+            "cont_2": 20
+        },
+        {
+            "id_cluster": 139,
+            "longitud": -3.68794131,
+            "latitud": 40.43375410,
+            "contaminacion": 15,
+            "meteo": 6,
+            "cont_2": 13
+        },
+        {
+            "id_cluster": 140,
+            "longitud": -3.63126934,
+            "latitud": 40.40763817,
+            "contaminacion": 10,
+            "meteo": 6,
+            "cont_2": 11
+        },
+        {
+            "id_cluster": 141,
+            "longitud": -3.60168116,
+            "latitud": 40.36814168,
+            "contaminacion": 18,
+            "meteo": 6,
+            "cont_2": 4
+        },
+        {
+            "id_cluster": 142,
+            "longitud": -3.71232186,
+            "latitud": 40.37342221,
+            "contaminacion": 20,
+            "meteo": 6,
+            "cont_2": 7
+        },
+        {
+            "id_cluster": 143,
+            "longitud": -3.71760936,
+            "latitud": 40.38508644,
+            "contaminacion": 20,
+            "meteo": 6,
+            "cont_2": 7
+        },
+        {
+            "id_cluster": 144,
+            "longitud": -3.63848866,
+            "latitud": 40.46992715,
+            "contaminacion": 23,
+            "meteo": 6,
+            "cont_2": 15
+        },
+        {
+            "id_cluster": 145,
+            "longitud": -3.66417419,
+            "latitud": 40.42022401,
+            "contaminacion": 2,
+            "meteo": 6,
+            "cont_2": 14
+        },
+        {
+            "id_cluster": 146,
+            "longitud": -3.64613637,
+            "latitud": 40.40806700,
+            "contaminacion": 10,
+            "meteo": 6,
+            "cont_2": 11
+        },
+        {
+            "id_cluster": 147,
+            "longitud": -3.69361118,
+            "latitud": 40.40297037,
+            "contaminacion": 14,
+            "meteo": 6,
+            "cont_2": 9
+        },
+        {
+            "id_cluster": 148,
+            "longitud": -3.67218907,
+            "latitud": 40.49114665,
+            "contaminacion": 21,
+            "meteo": 5,
+            "cont_2": 1
+        },
+        {
+            "id_cluster": 149,
+            "longitud": -3.63357052,
+            "latitud": 40.38434069,
+            "contaminacion": 13,
+            "meteo": 6,
+            "cont_2": 17
+        },
+        {
+            "id_cluster": 150,
+            "longitud": -3.66487905,
+            "latitud": 40.50477275,
+            "contaminacion": 21,
+            "meteo": 5,
+            "cont_2": 1
+        },
+        {
+            "id_cluster": 151,
+            "longitud": -3.68533116,
+            "latitud": 40.50733233,
+            "contaminacion": 24,
+            "meteo": 5,
+            "cont_2": 16
+        },
+        {
+            "id_cluster": 152,
+            "longitud": -3.66397440,
+            "latitud": 40.48358427,
+            "contaminacion": 21,
+            "meteo": 5,
+            "cont_2": 1
+        },
+        {
+            "id_cluster": 153,
+            "longitud": -3.69361982,
+            "latitud": 40.41404617,
+            "contaminacion": 9,
+            "meteo": 6,
+            "cont_2": 22
+        },
+        {
+            "id_cluster": 154,
+            "longitud": -3.62356493,
+            "latitud": 40.41756870,
+            "contaminacion": 10,
+            "meteo": 6,
+            "cont_2": 11
+        },
+        {
+            "id_cluster": 155,
+            "longitud": -3.63941422,
+            "latitud": 40.42323340,
+            "contaminacion": 10,
+            "meteo": 6,
+            "cont_2": 11
+        },
+        {
+            "id_cluster": 156,
+            "longitud": -3.65961849,
+            "latitud": 40.37646601,
+            "contaminacion": 13,
+            "meteo": 6,
+            "cont_2": 17
+        },
+        {
+            "id_cluster": 157,
+            "longitud": -3.66979690,
+            "latitud": 40.41157668,
+            "contaminacion": 16,
+            "meteo": 6,
+            "cont_2": 23
+        },
+        {
+            "id_cluster": 158,
+            "longitud": -3.69939577,
+            "latitud": 40.43662007,
+            "contaminacion": 15,
+            "meteo": 5,
+            "cont_2": 13
+        },
+        {
+            "id_cluster": 159,
+            "longitud": -3.65916994,
+            "latitud": 40.41710656,
+            "contaminacion": 10,
+            "meteo": 6,
+            "cont_2": 11
+        },
+        {
+            "id_cluster": 160,
+            "longitud": -3.68996926,
+            "latitud": 40.38678954,
+            "contaminacion": 14,
+            "meteo": 6,
+            "cont_2": 9
+        },
+        {
+            "id_cluster": 161,
+            "longitud": -3.70667827,
+            "latitud": 40.42078180,
+            "contaminacion": 9,
+            "meteo": 6,
+            "cont_2": 22
+        },
+        {
+            "id_cluster": 162,
+            "longitud": -3.63606529,
+            "latitud": 40.40088164,
+            "contaminacion": 10,
+            "meteo": 6,
+            "cont_2": 11
+        },
+        {
+            "id_cluster": 163,
+            "longitud": -3.70620879,
+            "latitud": 40.44705273,
+            "contaminacion": 11,
+            "meteo": 5,
+            "cont_2": 18
+        },
+        {
+            "id_cluster": 164,
+            "longitud": -3.67666987,
+            "latitud": 40.45859552,
+            "contaminacion": 3,
+            "meteo": 6,
+            "cont_2": 19
+        },
+        {
+            "id_cluster": 165,
+            "longitud": -3.67591053,
+            "latitud": 40.50222591,
+            "contaminacion": 24,
+            "meteo": 5,
+            "cont_2": 16
+        },
+        {
+            "id_cluster": 166,
+            "longitud": -3.74094202,
+            "latitud": 40.39290251,
+            "contaminacion": 6,
+            "meteo": 5,
+            "cont_2": 20
+        },
+        {
+            "id_cluster": 167,
+            "longitud": -3.64388450,
+            "latitud": 40.38914151,
+            "contaminacion": 13,
+            "meteo": 6,
+            "cont_2": 17
+        },
+        {
+            "id_cluster": 168,
+            "longitud": -3.62627606,
+            "latitud": 40.44763006,
+            "contaminacion": 4,
+            "meteo": 6,
+            "cont_2": 2
+        },
+        {
+            "id_cluster": 169,
+            "longitud": -3.65421010,
+            "latitud": 40.46690988,
+            "contaminacion": 3,
+            "meteo": 6,
+            "cont_2": 19
+        },
+        {
+            "id_cluster": 170,
+            "longitud": -3.69396814,
+            "latitud": 40.36421469,
+            "contaminacion": 5,
+            "meteo": 6,
+            "cont_2": 12
+        },
+        {
+            "id_cluster": 171,
+            "longitud": -3.69873245,
+            "latitud": 40.49000131,
+            "contaminacion": 24,
+            "meteo": 5,
+            "cont_2": 16
+        },
+        {
+            "id_cluster": 172,
+            "longitud": -3.67434388,
+            "latitud": 40.46717955,
+            "contaminacion": 17,
+            "meteo": 5,
+            "cont_2": 10
+        },
+        {
+            "id_cluster": 173,
+            "longitud": -3.66094268,
+            "latitud": 40.43816380,
+            "contaminacion": 3,
+            "meteo": 6,
+            "cont_2": 19
+        },
+        {
+            "id_cluster": 174,
+            "longitud": -3.58238046,
+            "latitud": 40.47584034,
+            "contaminacion": 8,
+            "meteo": 4,
+            "cont_2": 6
+        },
+        {
+            "id_cluster": 175,
+            "longitud": -3.63810860,
+            "latitud": 40.43796397,
+            "contaminacion": 4,
+            "meteo": 6,
+            "cont_2": 2
+        },
+        {
+            "id_cluster": 176,
+            "longitud": -3.70403001,
+            "latitud": 40.42924393,
+            "contaminacion": 1,
+            "meteo": 5,
+            "cont_2": 3
+        },
+        {
+            "id_cluster": 177,
+            "longitud": -3.68459055,
+            "latitud": 40.43784685,
+            "contaminacion": 15,
+            "meteo": 6,
+            "cont_2": 13
+        },
+        {
+            "id_cluster": 178,
+            "longitud": -3.70991505,
+            "latitud": 40.48513447,
+            "contaminacion": 12,
+            "meteo": 5,
+            "cont_2": 5
+        },
+        {
+            "id_cluster": 179,
+            "longitud": -3.73956602,
+            "latitud": 40.38456960,
+            "contaminacion": 6,
+            "meteo": 6,
+            "cont_2": 20
+        },
+        {
+            "id_cluster": 180,
+            "longitud": -3.68579407,
+            "latitud": 40.44546841,
+            "contaminacion": 15,
+            "meteo": 6,
+            "cont_2": 13
+        },
+        {
+            "id_cluster": 181,
+            "longitud": -3.73405327,
+            "latitud": 40.42648872,
+            "contaminacion": 7,
+            "meteo": 5,
+            "cont_2": 0
+        },
+        {
+            "id_cluster": 182,
+            "longitud": -3.72651855,
+            "latitud": 40.43999583,
+            "contaminacion": 11,
+            "meteo": 5,
+            "cont_2": 18
+        },
+        {
+            "id_cluster": 183,
+            "longitud": -3.70256811,
+            "latitud": 40.40502926,
+            "contaminacion": 9,
+            "meteo": 6,
+            "cont_2": 22
+        },
+        {
+            "id_cluster": 184,
+            "longitud": -3.64811064,
+            "latitud": 40.43317770,
+            "contaminacion": 4,
+            "meteo": 6,
+            "cont_2": 2
+        },
+        {
+            "id_cluster": 185,
+            "longitud": -3.69554323,
+            "latitud": 40.42758898,
+            "contaminacion": 9,
+            "meteo": 6,
+            "cont_2": 22
+        },
+        {
+            "id_cluster": 186,
+            "longitud": -3.68469625,
+            "latitud": 40.48355964,
+            "contaminacion": 24,
+            "meteo": 5,
+            "cont_2": 16
+        },
+        {
+            "id_cluster": 187,
+            "longitud": -3.72376702,
+            "latitud": 40.38542236,
+            "contaminacion": 20,
+            "meteo": 6,
+            "cont_2": 7
+        },
+        {
+            "id_cluster": 188,
+            "longitud": -3.69862465,
+            "latitud": 40.46055984,
+            "contaminacion": 17,
+            "meteo": 5,
+            "cont_2": 10
+        },
+        {
+            "id_cluster": 189,
+            "longitud": -3.71711359,
+            "latitud": 40.48414362,
+            "contaminacion": 12,
+            "meteo": 5,
+            "cont_2": 5
+        },
+        {
+            "id_cluster": 190,
+            "longitud": -3.69311391,
+            "latitud": 40.41896892,
+            "contaminacion": 9,
+            "meteo": 6,
+            "cont_2": 22
+        },
+        {
+            "id_cluster": 191,
+            "longitud": -3.66885059,
+            "latitud": 40.38167796,
+            "contaminacion": 13,
+            "meteo": 6,
+            "cont_2": 17
+        },
+        {
+            "id_cluster": 192,
+            "longitud": -3.74817913,
+            "latitud": 40.47451473,
+            "contaminacion": 12,
+            "meteo": 5,
+            "cont_2": 5
+        },
+        {
+            "id_cluster": 193,
+            "longitud": -3.67476019,
+            "latitud": 40.47724967,
+            "contaminacion": 17,
+            "meteo": 5,
+            "cont_2": 10
+        },
+        {
+            "id_cluster": 194,
+            "longitud": -3.70313500,
+            "latitud": 40.45295002,
+            "contaminacion": 11,
+            "meteo": 5,
+            "cont_2": 18
+        },
+        {
+            "id_cluster": 195,
+            "longitud": -3.61700383,
+            "latitud": 40.45858925,
+            "contaminacion": 23,
+            "meteo": 4,
+            "cont_2": 15
+        },
+        {
+            "id_cluster": 196,
+            "longitud": -3.69507802,
+            "latitud": 40.37556937,
+            "contaminacion": 14,
+            "meteo": 6,
+            "cont_2": 9
+        },
+        {
+            "id_cluster": 197,
+            "longitud": -3.69956659,
+            "latitud": 40.48385704,
+            "contaminacion": 12,
+            "meteo": 5,
+            "cont_2": 5
+        },
+        {
+            "id_cluster": 198,
+            "longitud": -3.73230606,
+            "latitud": 40.43837577,
+            "contaminacion": 7,
+            "meteo": 5,
+            "cont_2": 0
+        },
+        {
+            "id_cluster": 199,
+            "longitud": -3.67023732,
+            "latitud": 40.40665479,
+            "contaminacion": 16,
+            "meteo": 6,
+            "cont_2": 23
+        }
+    ]
+}
