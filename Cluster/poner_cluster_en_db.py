@@ -32,6 +32,8 @@ def poblar_cluster():
         sql = f'INSERT INTO Cluster (id_cluster,longitud, latitud) values ' \
                           f'({i}, {longitud}, {latitud});'
 
+        sql = f'UPDATE Cluster SET longitud={longitud}, latitud={latitud} WHERE id={i}'
+
         cur.execute(sql)
 
         connection.commit()
