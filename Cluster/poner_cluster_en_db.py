@@ -5,6 +5,8 @@ import mysql.connector
 from coordenadas_a_cluster import *
 from secret import *
 import pandas as pd
+import numpy as np
+
 from sklearn.cluster import KMeans
 import geopy.distance
 
@@ -199,6 +201,8 @@ def clusterizar_gran_evento():
 
 
 def tiempo_a_cluster():
+    """Se asigna a cada cluster la estacion meteorologica más cercana"""
+
     # leer todas las estaciones
     if connection.is_connected():
         cur = connection.cursor()
@@ -230,6 +234,9 @@ def tiempo_a_cluster():
 
 
 def contaminacion_a_cluster2():
+    """Como hay más clusters que estaciones, lo que se hace es asignar a cada cluster la estación más cercana """
+
+
     # leer todas las estaciones
     if connection.is_connected():
         cur = connection.cursor()
@@ -262,12 +269,16 @@ def contaminacion_a_cluster2():
 
 def main():
     poblar_cluster()
+
     clusterizar_camaras()
+
     clusterizar_sensores()
+
     clusterizar_eventos()
-    contaminacion_a_cluster()
     clusterizar_gran_evento()
+
     tiempo_a_cluster()
+
     contaminacion_a_cluster2()
 
 
