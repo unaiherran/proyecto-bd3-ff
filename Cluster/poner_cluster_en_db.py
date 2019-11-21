@@ -250,9 +250,7 @@ def contaminacion_a_cluster2():
             print(f"Cluster {clu[0]} -> Estacion más cercana {estacion} a {distancia_estacion} m")
 
 
-
 def main():
-    pass
     clusterizar_camaras()
     clusterizar_sensores()
     clusterizar_eventos()
@@ -260,7 +258,6 @@ def main():
     clusterizar_gran_evento()
     tiempo_a_cluster()
     contaminacion_a_cluster2()
-
 
 
 if __name__ == '__main__':
