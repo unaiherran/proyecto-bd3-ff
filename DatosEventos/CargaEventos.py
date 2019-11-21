@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[2]:
 
 
+import requests
 import pandas as pd
+from io import StringIO
 from datetime import datetime
 from datetime import timedelta
 
@@ -13,35 +15,52 @@ from coordenadas_a_cluster import *
 modelo = load_model("kmeans.21.3.joblib")
 
 
-# In[2]:
-
-
-#!wget https://www.dropbox.com/s/1wnnyvfof600y74/300107-0-agenda-actividades-eventos.csv
-#!ls -l
-
-
 # In[3]:
 
 
-eventos_df = pd.read_csv('300107-0-agenda-actividades-eventos.csv', encoding = 'ISO-8859-1', sep=';', engine='python')
-eventos_df.head(5)
+#!ls -l
+#!rm 300107-0-agenda-actividades-eventos.csv
+#!ls -l
+#!wget https://datos.madrid.es/egob/catalogo/300107-0-agenda-actividades-eventos.csv
+#!ls -l
 
 
 # In[4]:
+
+
+#eventos_df = pd.read_csv('300107-0-agenda-actividades-eventos.csv', encoding = 'ISO-8859-1', sep=';', engine='python')
+#eventos_df.head(5)
+
+
+# In[5]:
+
+
+
+url_agenda_eventos = "https://datos.madrid.es/egob/catalogo/300107-0-agenda-actividades-eventos.csv"
+
+response = requests.get(url_agenda_eventos, headers={"User-Agent": "curl/7.61.0"})
+
+data = StringIO(response.content.decode('ISO-8859-1'))
+
+eventos_df = pd.read_csv(data, sep=';', engine='python')
+eventos_df.head(5)
+
+
+# In[6]:
 
 
 print(eventos_df.shape)
 eventos_reduced_df = eventos_df[['TITULO', 'GRATUITO', 'DIAS-SEMANA', 'FECHA', 'FECHA-FIN', 'HORA', 'LATITUD', 'LONGITUD']]
 
 
-# In[10]:
+# In[7]:
 
 
 
 eventos_reduced_df.tail(5)
 
 
-# In[17]:
+# In[8]:
 
 
 print('Limpiamos el dataset de elementos que no tengan los campos obligatorios')
@@ -51,20 +70,20 @@ eventos_reduced_df = eventos_reduced_df.drop(eventos_reduced_df[eventos_reduced_
 eventos_reduced_df.tail(10)
 
 
-# In[18]:
+# In[9]:
 
 
 print(eventos_reduced_df.shape)
 
 
-# In[19]:
+# In[10]:
 
 
 eventos_reduced_df['FECHA'] = pd.to_datetime(eventos_reduced_df['FECHA'])
 eventos_reduced_df['FECHA-FIN'] = pd.to_datetime(eventos_reduced_df['FECHA-FIN'])
 
 
-# In[20]:
+# In[11]:
 
 
 
@@ -138,25 +157,25 @@ eventos_final_df = pd.DataFrame(eventos_final)
     
 
 
-# In[21]:
+# In[12]:
 
 
 eventos_final_df.shape
 
 
-# In[22]:
+# In[13]:
 
 
 eventos_final_df.head(5)
 
 
-# In[23]:
+# In[14]:
 
 
 eventos_final_df.tail(5)
 
 
-# In[31]:
+# In[15]:
 
 
 #pip install mysql-connector-python
@@ -167,7 +186,7 @@ from mysql.connector import errorcode
 from config import *
 
 
-# In[16]:
+# In[17]:
 
 
 
@@ -185,10 +204,13 @@ if __name__ == "__main__":
         cursor = connection.cursor()
         
         for _, row in eventos_final_df.iterrows():
-            print(row)
+            #print(row)
             sql = f'INSERT INTO DatosEventos(fecha, gratuito, titulo, longitud, latitud, cluster)             VALUES             (\'{row.get("FECHA")}\', {row.get("GRATUITO")}, \"{row.get("TITULO")}\", {row.get("LONGITUD")}, {row.get("LATITUD")}, {row.get("CLUSTER")});'
-            print(sql)
-            cursor.execute(sql)
+            #print(sql)
+            try:
+                cursor.execute(sql)
+            except mysql.connector.Error as err:
+                print("Error: {}".format(err))
 
         connection.commit()
         print("Records inserted successfully into DatosEventos table")
@@ -201,12 +223,6 @@ if __name__ == "__main__":
         if (connection.is_connected()):
             connection.close()
             print("MySQL connection is closed")
-
-
-# In[2]:
-
-
-
 
 
 # In[ ]:
