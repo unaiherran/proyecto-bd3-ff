@@ -186,11 +186,14 @@ from mysql.connector import errorcode
 from config import *
 
 
-# In[17]:
+# In[22]:
 
 
 
 if __name__ == "__main__":
+    
+    nuevos = 0
+    existentes = 0
     
     try:
         connection = mysql.connector.connect(
@@ -209,7 +212,9 @@ if __name__ == "__main__":
             #print(sql)
             try:
                 cursor.execute(sql)
+                nuevos = nuevos + 1
             except mysql.connector.Error as err:
+                existentes = existentes + 1
                 print("Error: {}".format(err))
 
         connection.commit()
@@ -223,6 +228,10 @@ if __name__ == "__main__":
         if (connection.is_connected()):
             connection.close()
             print("MySQL connection is closed")
+    print("\nResultados de ejecución: " + str(datetime.now()))
+    print("\tnuevos: " + str(nuevos))
+    print("\texistentes: " + str(existentes))
+print("-----------\n")
 
 
 # In[ ]:
