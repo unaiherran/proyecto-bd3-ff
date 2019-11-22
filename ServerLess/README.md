@@ -1,6 +1,7 @@
 # proyecto-bd3-ff -VISUALIZACION
 Proyecto final BD3 KC
 
+https://trello-attachments.s3.amazonaws.com/5d9a3d4660629d61ddaed219/5dadc7678bcc01020c792a24/c714d1698140cfa460fe9685c81c756d/image.png
 
 # Books
 Hacking Google Maps and Google Earth (ExtremeTech) (Un poco antiguo)
