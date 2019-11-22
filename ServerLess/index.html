@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Mapa del calor del tráfico en Madrid</title>
+
+      <!-- Required meta tags -->
+      <meta charset="utf-8">
+      <meta name="viewport" conten  t="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+      <link rel="shortcut icon" type="image/icon" href="favicon.ico">
+
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+
+
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+      <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      .map-container-5{
+          overflow:hidden;
+          padding-bottom:56.25%;
+          position:relative;
+          height:0;
+      }
+
+      .map-container-5 iframe{
+          left:0;
+          top:0;
+          height:100%;
+          width:100%;
+          position:absolute;
+      }
+
+    </style>
+  </head>
+
+  <body>
+
+<!--
+    <div id="map_actual" style="width:300px; height:300px; margin-left:80px;"></div>
+    <div id="map_futuro" style="width:300px; height:300px; margin-right:80px;"></div>
+-->
+    <!--Grid row-->
+
+    <div class="form-row text-center">
+
+        <div class="col-12">
+            <button  class="btn btn-danger" onclick="toggleHeatmap()">Toggle Heatmap</button>
+            <button  class="btn btn-secondary" onclick="changeGradient()">Change gradient</button>
+            <button  class="btn btn-secondary" onclick="changeRadius()">Change radius</button>
+            <button  class="btn btn-secondary" onclick="changeOpacity()">Change opacity</button>
+        </div>
+
+    </div>
+
+    <br>
+
+    <div class="row">
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+            <!--Card-->
+            <div class="card card-cascade narrower">
+
+                <!--Card image-->
+                <div class="view view-cascade gradient-card-header blue-gradient">
+                    <h5 class="mb-0">Situación Actual</h5>
+                </div>
+                <!--/Card image-->
+
+                <!--Card content-->
+                <div class="card-body card-body-cascade text-center">
+                    <!--Google map-->
+                    <div id="map_actual" class="z-depth-1-half map-container-5" style="height: 600px">
+                    </div>
+                </div>
+                <!--/.Card content-->
+
+            </div>
+            <!--/.Card-->
+
+        </div>
+        <!--Grid column-->
+
+        <!--Grid column-->
+        <div class="col-md-6 mb-4">
+
+            <!--Card-->
+            <div class="card card-cascade narrower">
+
+                <!--Card image-->
+                <div class="view view-cascade gradient-card-header peach-gradient">
+                    <h5 class="mb-0">Previsión</h5>
+                </div>
+                <!--/Card image-->
+
+                <!--Card content-->
+                <div class="card-body card-body-cascade text-center">
+                    <!--Google map-->
+                    <div id="map_futuro" class="z-depth-1-half map-container-5" style="height: 600px">
+                    </div>
+                </div>
+                <!--/.Card content-->
+
+            </div>
+            <!--/.Card-->
+
+        </div>
+        <!--Grid column-->
+
+    </div>
+    <!--Grid row-->
+
+
+    <script>
+
+
+var map_actual , map_futuro,heatmap_actual,heatmap_futuro;
+var invokeUrl='https://c4w90fuov7.execute-api.eu-west-1.amazonaws.com/trafficdata';
+
+
+function initMap() {
+
+    // create the maps
+    var myOptions = {
+        zoom: 13,
+        center: {lat: 40.416724, lng: -3.703439},
+        mapTypeId: 'satellite' //google.maps.MapTypeId.HYBRID //ROADMAP,SATELLITE
+    }
+
+
+
+  map_actual = new google.maps.Map(document.getElementById("map_actual"), myOptions);
+  map_futuro = new google.maps.Map(document.getElementById("map_futuro"), myOptions);
+
+
+
+  $.ajax({  method: 'GET',
+            url: invokeUrl ,
+            //headers: {},
+            //data: JSON.stringify({  }),
+            contentType: 'application/json',
+            success: completeRequest,
+            error: function ajaxError(jqXHR, textStatus, errorThrown) {
+                console.error('Error requesting: ', textStatus, ', Details: ', errorThrown);
+                console.error('Response: ', jqXHR.responseText);
+                alert('An error occured when requesting:\n' + jqXHR.responseText);
+            }
+        });
+
+
+
+
+
+}
+
+
+function completeRequest(result) {
+
+  console.log('Response received from API: ', result);
+
+    var points = [];
+
+    result.forEach(function (elemento, indice, array) {
+        points.push( {location:new google.maps.LatLng(elemento.latitud,elemento.longitud),weight: elemento.ocu_real});
+       // points.push( new google.maps.LatLng(elemento.latitud,elemento.longitud));
+    });
+
+
+  //debugger;
+
+  heatmap_actual = new google.maps.visualization.HeatmapLayer({
+    data: points,
+    map: map_actual,
+    radius:20,
+    maxIntensity:100
+  });
+
+  heatmap_futuro = new google.maps.visualization.HeatmapLayer({
+    data: points,
+    map: map_futuro,
+    radius:20,
+    maxIntensity:100
+  });
+
+
+}
+
+
+function toggleHeatmap() {
+    heatmap_actual.setMap(heatmap_actual.getMap() ? null : map_actual);
+    heatmap_futuro.setMap(heatmap_futuro.getMap() ? null : map_futuro);
+
+}
+
+
+function changeGradient() {
+    var gradient = [
+        'rgba(0, 255, 255, 0)',
+        'rgba(0, 255, 255, 1)',
+        'rgba(0, 191, 255, 1)',
+        'rgba(0, 127, 255, 1)',
+        'rgba(0, 63, 255, 1)',
+        'rgba(0, 0, 255, 1)',
+        'rgba(0, 0, 223, 1)',
+        'rgba(0, 0, 191, 1)',
+        'rgba(0, 0, 159, 1)',
+        'rgba(0, 0, 127, 1)',
+        'rgba(63, 0, 91, 1)',
+        'rgba(127, 0, 63, 1)',
+        'rgba(191, 0, 31, 1)',
+        'rgba(255, 0, 0, 1)'
+    ]
+    heatmap_actual.set('gradient', heatmap_actual.get('gradient') ? null : gradient);
+    heatmap_futuro.set('gradient', heatmap_futuro.get('gradient') ? null : gradient);
+
+}
+
+function changeRadius() {
+
+    if (heatmap_actual.get('radius') == 20)
+    {
+        heatmap_actual.set('radius',40);
+        heatmap_futuro.set('radius',40);
+    }
+    else {
+        heatmap_actual.set('radius', 20);
+        heatmap_futuro.set('radius', 20);
+    }
+
+}
+
+function changeOpacity() {
+    heatmap_actual.set('opacity', heatmap_actual.get('opacity') ? null : 0.4);
+    heatmap_futuro.set('opacity', heatmap_futuro.get('opacity') ? null : 0.4);
+}
+
+    </script>
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBwJFiyPp5W--JhIrrLCzhP6TYCHBa4Nn0&libraries=visualization&callback=initMap">
+    // Introducir tu Key de google maps
+    </script>
+  </body>
+</html>
