@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[2]:
+# In[1]:
 
 
 import requests
@@ -15,7 +15,7 @@ from coordenadas_a_cluster import *
 modelo = load_model("kmeans.21.3.joblib")
 
 
-# In[3]:
+# In[2]:
 
 
 #!ls -l
@@ -25,14 +25,14 @@ modelo = load_model("kmeans.21.3.joblib")
 #!ls -l
 
 
-# In[4]:
+# In[3]:
 
 
 #eventos_df = pd.read_csv('300107-0-agenda-actividades-eventos.csv', encoding = 'ISO-8859-1', sep=';', engine='python')
 #eventos_df.head(5)
 
 
-# In[5]:
+# In[4]:
 
 
 
@@ -46,21 +46,21 @@ eventos_df = pd.read_csv(data, sep=';', engine='python')
 eventos_df.head(5)
 
 
-# In[6]:
+# In[5]:
 
 
 print(eventos_df.shape)
 eventos_reduced_df = eventos_df[['TITULO', 'GRATUITO', 'DIAS-SEMANA', 'FECHA', 'FECHA-FIN', 'HORA', 'LATITUD', 'LONGITUD']]
 
 
-# In[7]:
+# In[6]:
 
 
 
 eventos_reduced_df.tail(5)
 
 
-# In[8]:
+# In[7]:
 
 
 print('Limpiamos el dataset de elementos que no tengan los campos obligatorios')
@@ -70,20 +70,20 @@ eventos_reduced_df = eventos_reduced_df.drop(eventos_reduced_df[eventos_reduced_
 eventos_reduced_df.tail(10)
 
 
-# In[9]:
+# In[8]:
 
 
 print(eventos_reduced_df.shape)
 
 
-# In[10]:
+# In[9]:
 
 
 eventos_reduced_df['FECHA'] = pd.to_datetime(eventos_reduced_df['FECHA'])
 eventos_reduced_df['FECHA-FIN'] = pd.to_datetime(eventos_reduced_df['FECHA-FIN'])
 
 
-# In[11]:
+# In[10]:
 
 
 
@@ -157,25 +157,25 @@ eventos_final_df = pd.DataFrame(eventos_final)
     
 
 
-# In[12]:
+# In[11]:
 
 
 eventos_final_df.shape
 
 
-# In[13]:
+# In[12]:
 
 
 eventos_final_df.head(5)
 
 
-# In[14]:
+# In[13]:
 
 
 eventos_final_df.tail(5)
 
 
-# In[15]:
+# In[14]:
 
 
 #pip install mysql-connector-python
@@ -186,7 +186,7 @@ from mysql.connector import errorcode
 from config import *
 
 
-# In[22]:
+# In[17]:
 
 
 
@@ -228,9 +228,11 @@ if __name__ == "__main__":
         if (connection.is_connected()):
             connection.close()
             print("MySQL connection is closed")
-    print("\nResultados de ejecución: " + str(datetime.now()))
     print("\tnuevos: " + str(nuevos))
     print("\texistentes: " + str(existentes))
+    text = "Proceso de Carga de Eventos finalizado. \n\tNuevos: {0}\n\tTotal: {1}".format(str(nuevos), str(existentes))
+    payload = {'chat_id': tg_group, 'text': text}
+    requests.post(tg_url, data=payload)
 print("-----------\n")
 
 
