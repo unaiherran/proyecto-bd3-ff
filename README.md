@@ -8,6 +8,9 @@ facilitar el trabajo de evaluación explicamos someramente que hay en
 cada uno de ellos. Dentro de los directorios hay un `README.md` que
 desarrolla más el contenido de cada uno
 
+* `AnalisisSeries` - Aquí se ha generado un notebook de Jupyter para
+  intentar analizar los datos de las predicciones de forma interactiva.
+  
 * `BD` - Información de como está construida la base de datos.
 
 * `captura_camaras` - scrapea y analiza las imagenes publicas de las
