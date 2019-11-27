@@ -13,6 +13,8 @@ from datetime import datetime, timedelta
 Base = declarative_base()
 Base2 = declarative_base()
 import os
+import pymysql
+import numpy as np
 
 import warnings
 from sqlalchemy.exc import SAWarning
@@ -60,7 +62,7 @@ class contaminacion(object):
         df = pd.DataFrame(columns=('codigo', 'descripcion', 'unidad'))
 
         codigos = [1, 6, 7, 8, 9, 10, 12, 14, 20, 30, 35, 37, 38, 39, 42, 43, 44]
-
+ 
         descripcion = ['Dióxido de Azufre', 'Monóxido de Carbono', 'Monóxido de Nitrógeno', 'Dióxido de Nitrógeno',
                        'Partículas < 2.5 um', 'Partículas < 10 um', 'Oxidos de Nitrógeno', 'Ozono', 'Tolueno',
                        'Benzeno',
@@ -296,23 +298,9 @@ class TableContaminacion(Base):
 
 
 mi_objeto = contaminacion()
-mi_objeto.print_table()
-#mi_objeto.save_estaciones()
-#mi_objeto.save_magnitud()
-#
-#while True:
-#     mi_objeto.save_contaminacion()
-#     sleep(3600)
+mi_objeto.save_estaciones()
+mi_objeto.save_magnitud()
 
-
-
-
-
-
-
-
-#mi_objeto.save_data()
-#while True:
-#    mi_objeto.save_data()
-#    sleep(3600)
-
+while True:
+     mi_objeto.save_contaminacion()
+     sleep(3600)
