@@ -186,7 +186,7 @@ from mysql.connector import errorcode
 from config import *
 
 
-# In[17]:
+# In[ ]:
 
 
 
@@ -219,6 +219,9 @@ if __name__ == "__main__":
 
         connection.commit()
         print("Records inserted successfully into DatosEventos table")
+        sql_count = f'SELECT COUNT(*) FROM DatosEventos;'
+        cursor.execute(sql_count)
+        total_eventos = cursor.fetchone()
         cursor.close()
 
     except mysql.connector.Error as error:
@@ -230,8 +233,9 @@ if __name__ == "__main__":
             print("MySQL connection is closed")
     print("\tnuevos: " + str(nuevos))
     print("\texistentes: " + str(existentes))
-    text = "Proceso de Carga de Eventos finalizado. \n\tNuevos: {0}\n\tTotal: {1}".format(str(nuevos), str(existentes))
+    text = "Proceso de Carga de Eventos finalizado. \n\tTotal en CSV: {0}\n\tYa cargados en BD: {1}\n\tNuevos: {2}\n\tTotal Eventos en BD: {3}".format(str(eventos_final_df.shape[0]), str(existentes), str(nuevos), str(total_eventos[0]))
     payload = {'chat_id': tg_group, 'text': text}
+    print(text)
     requests.post(tg_url, data=payload)
 print("-----------\n")
 
