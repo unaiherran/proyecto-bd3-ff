@@ -22,15 +22,27 @@ desarrolla más el contenido de cada uno
 
 * `cluster-map-master`
 
-* `Datos Contaminacion`
+* `Datos Contaminacion` - El objetivo principal en este módulo es la 
+  extracción de datos sobre contaminación de la Provincia de Madríd
+  procedientes de los datos abiertos del ayuntamiento de Madrid.
 
-* `Datos Eventos`
+* `Datos Eventos` - Este modulo realiza la carga de los Eventos en la
+  base de datos
 
-* `DatosMeteorologicos` 
+* `DatosMeteorologicos` - El objetivo principal en este módulo es la
+  extracción de datos metereológicos de la Provincia de Madríd
+  procedentes de la pagina de AEMET
 
-* `DatosTraficoTiemporeal`
+* `DatosTraficoTiemporeal` - Este modulo carga los datos procedentes de
+  un endpoint del Ayuntamiento de Madrid con todos las lecturas de los
+  sensores de Trafico y los incorpora a la base de datos para su
+  posterior procesado.
 
-* `Influx`
+* `Influx` - Este script guarda datos en InfluxDB sobre el número de
+  archivos existente en dos directorios de almacenamiento de las
+  imagenes de tráficos que son uno del scrapeo y otra para el procesado.
+  Esto nos permitirá mediante la monitorización a través de grafana de
+  ver si hay algún problema en la realización de estos procesos.
 
 * `Modelo Deep Learning` - Analisis, decisión e implementación del
   modelo predictivo elegido.
@@ -38,7 +50,7 @@ desarrolla más el contenido de cada uno
 * `Propuesta` - Documentación de la propuesta inicial, así como la
   presentación final del proyecto.
 
-* `ServerLess`  
+* `ServerLess` - 
 
 
 

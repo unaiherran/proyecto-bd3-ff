@@ -1,8 +1,8 @@
 # Documentación
 ## Objetivo
-El objetivo principal en este módulo es la extracción de datos sobre 
+El objetivo principal en este módulo es la extracción de datos sobre
 contaminación de la Provincia de Madríd procedientes de los datos
-abiertos del ayuntamiento de Madrid
+abiertos del ayuntamiento de Madrid.
 
 ## Librerías
 Para el manejo de la base de datos empleo el ORM sqlalchemy que permite 
