@@ -43,6 +43,8 @@ class Monitor(object):
     def write_to_influx(self):
         value_for_procesing = self.count_files(settings.PROCESS_DIR + '*')
         fields_for_procesing = {'value': value_for_procesing}
+        
+        # llamo al método define_json para construir el json a grabar
         json_body_for_procesing = self.define_json(measurement='Archivos en scrap', time=datetime.now(),
                                                    fields=fields_for_procesing)
         self.client.write_points(json_body_for_procesing)

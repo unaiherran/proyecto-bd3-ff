@@ -1,4 +1,11 @@
+# Documentación
+## Objetivo
+El objetivo principal en este módulo es la extracción de datos sobre contaminación de la Provincia de Madríd procedientes de los datos abiertos del ayuntamiento de Madrid
 
+## Librerías
+Para el manejo de la base de datos empleo el ORM sqlalchemy que permite interactuar con la base de datos como si fuesen objetos mientras que para el manejo de los datos empleo pandas
+
+## Funcionamiento
 Se crean 3 tablas en la base de datos:
 * "contaminacion_estacion" que guarda los datos relativos a la estación. El codigo, dirección, longitud, latitud etc que permite representarla en un mapa
 * "Table_magnitud": esta tabla tiene una foreingKey a la tabla anterior y guarda el codigo del tipo de medida que realiza la estación así como una descripción y las unidades de medida.
