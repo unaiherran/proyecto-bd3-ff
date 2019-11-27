@@ -33,8 +33,7 @@ class aemet(object):
             'cache-control': "no-cache"
         }
 
-        self.file = 'datos.csv'
-        self.base = 'proyecto.db'
+        self.base = 'proyecto'
 
         requests.packages.urllib3.util.ssl_.DEFAULT_CIPHERS += 'HIGH:!DH:!aNULL'
         try:
@@ -44,13 +43,15 @@ class aemet(object):
             pass
 
     def make_date(self, str_fecha):
+        """
+            Metodo para convertir un string a datatime
+        """
         formato_fecha = "%Y-%m-%dT%H:%M:%S"
         date = datetime.strptime(str_fecha, formato_fecha)
         return date
 
     def get_idema(self):
         """
-
         :return: devuelve un dataframe con todas las estaciones
         """
         url = "https://opendata.aemet.es/opendata/api/valores/climatologicos/inventarioestaciones/todasestaciones"
@@ -182,74 +183,7 @@ class aemet(object):
         list = []
         for k, v in dict.items():
             list.append(k)
-
         return dict
-
-    #cabecera = ['idema', 'inicio', 'fin', 'lon', 'lat', 'prec', 'alt', 'ubi', 'pacutp', 'pliqtp', ]
-
-    def get_datos_prec(self, estaciones):
-
-        try:
-            f = open(self.file, 'r+')
-            flag = 0
-        except:
-            f = open(self.file, 'a+')
-            flag = 1
-        print(f.read())
-
-        wr = csv.writer(f)
-        data_csv = []
-        for indice, fila in estaciones.iterrows():
-            indicativo = fila['indicativo']
-            try:
-                dict = self.get_param_estacion(indicativo)
-                for k, value in dict.items():
-                    data_csv.append(value)
-                wr.writerow(data_csv)
-                data_csv = []
-
-            except:
-                print("no existe")
-        if flag == 1:
-            cabecera = []
-            for k, value in dict.items():
-                cabecera.append(k)
-
-            print("añado cabecera")
-        else:
-            print("paso")
-
-        f.close()
-
-    def get_datos_est(self, estaciones):
-
-        try:
-            open(self.file, 'r')
-            flag = 0
-        except:
-            flag = 1
-
-        with open(self.file, 'a') as csvfile:
-            fielnames = ['inicio', 'fin', 'prec', 'idema', 'lon', 'lat', 'alt', 'ubi', 'pacutp', 'pliqtp', 'psolt',
-                         'vmax', 'vv', 'vmaxu', 'vvu', 'dv', 'dvu', 'dmax', 'dmaxu', 'stdvv', 'stddv', 'stdvvu',
-                         'stddvu', 'hr', 'inso', 'pres', 'ts', 'pres_mar', 'tss20cm', 'tss5cm', 'ta', 'tpr', 'tamin',
-                         'tamax', 'vis', 'geo700', 'geo850', 'geo925', 'rviento', 'nieve']
-            wr = csv.DictWriter(csvfile, fieldnames=fielnames)
-            if flag == 1:
-                wr.writeheader()
-
-            for indice, fila in estaciones.iterrows():
-                indicativo = fila['indicativo']
-                try:
-                    dict = self.get_param_estacion(indicativo)
-                    wr.writerow(dict)
-                except:
-                    print("no existe")
-            csvfile.close()
-
-    def open_csv(self):
-        df = pd.read_csv(self.file)
-        return df
 
     def save_estaciones(self, df):
         db = BaseOne(self.base)
@@ -263,6 +197,7 @@ class aemet(object):
                 latitud = parametros.get('lat')
                 ubicacion = parametros.get('ubi')
                 try:
+                    # Compruebo que si existe el codigo de la estacion en la base
                     query = session.query(EstacionTiempo).get(
                         session.query(EstacionTiempo).filter(
                             EstacionTiempo.codigo_estacion == codigo_estacion).one().id)
@@ -321,8 +256,11 @@ class aemet(object):
                 prec = parametros.get('prec')
 
                 estacion_id = session.query(EstacionTiempo).get(session.query(EstacionTiempo).filter(EstacionTiempo.codigo_estacion == codigo_estacion).one().id)
-                print(estacion_id)
+                query_estacion= session.query(EstacionTiempo).get(session.query(EstacionTiempo).filter(
+                    EstacionTiempo.codigo_estacion == codigo_estacion).one().id)
+
                 try:
+                    # Compruebo que no exista la medida
                     query = session.query(MedidaTiempo).get(session.query(MedidaTiempo).filter(
                         MedidaTiempo.id == estacion_id.id, MedidaTiempo.fecha==fecha).one().id)
 
@@ -333,100 +271,29 @@ class aemet(object):
                                          stddv=stddv, stdvvu=stdvvu, stddvu=stddvu, hr=hr, inso=inso, pres=pres,
                                          pres_mar=pres_mar, ts=ts, tss20cm=tss20cm, tss5cm=tss5cm, ta=ta, tpr=tpr,
                                          tamin=tamin, tamax=tamax, vis=vis, rviento=rviento, nieve=nieve, prec=prec)
-                    session.add(datos)
+                    query_estacion.MedidaTiempo.append(datos)
+                    
             except:
                 pass
 
         session.commit()
         session.close()
-
-    def carga_datos_csv(self, df):
-        db = BaseOne(self.base)
-        session = db.sesion_inicio()
-        for index, row in df.iterrows():
-
-            codigo_estacion = row.get('idema')
-            try:
-                parametros = self.get_param_estacion(codigo_estacion)
-
-                fecha_str = parametros.get('fin')
-                fecha = self.make_date(fecha_str)
-                pacutp = parametros.get('pacutp')
-                pliqtp = parametros.get('pliqtp')
-                psolt = parametros.get('psolt')
-                vmax = parametros.get('vmax')
-                vv = parametros.get('vv')
-                vmaxu = parametros.get('vmaxu')
-                vvu = parametros.get('vvu')
-                dv = parametros.get('dv')
-                dvu = parametros.get('dvu')
-                dmax = parametros.get('dmax')
-                dmaxu = parametros.get('dmaxu')
-                stdvv = parametros.get('stdvv')
-                stddv = parametros.get('stddv')
-                stdvvu = parametros.get('stdvvu')
-                stddvu = parametros.get('stddvu')
-                hr = parametros.get('hr')
-                inso = parametros.get('inso')
-                pres = parametros.get('pres')
-                pres_mar = parametros.get('pres_mar')
-                ts = parametros.get('ts')
-                tss20cm = parametros.get('tss20cm')
-                tss5cm = parametros.get('tss5cm')
-                ta = parametros.get('ta')
-                tpr = parametros.get('tpr')
-                tamin = parametros.get('tamin')
-                tamax = parametros.get('tamax')
-                vis = parametros.get('vis')
-                rviento = parametros.get('rviento')
-                nieve = parametros.get('nieve')
-                prec = parametros.get('prec')
-
-                estacion_id = session.query(EstacionTiempo).get(session.query(EstacionTiempo).filter(
-                    EstacionTiempo.codigo_estacion == codigo_estacion).one().id)
-                try:
-                    query = session.query(MedidaTiempo).get(session.query(MedidaTiempo).filter(
-                        MedidaTiempo.id == estacion_id.id, MedidaTiempo.fecha == fecha).one().id)
-                    print('existe')
-                except:
-                    print('guardo datos')
-                    datos = MedidaTiempo(fecha=fecha, pacutp=pacutp, pliqtp=pliqtp, psolt=psolt, vmax=vmax, vv=vv,
-                                         vmaxu=vmaxu, vvu=vvu, dv=dv, dvu=dvu, dmax=dmax, dmaxu=dmaxu, stdvv=stdvv,
-                                         stddv=stddv, stdvvu=stdvvu, stddvu=stddvu, hr=hr, inso=inso, pres=pres,
-                                         pres_mar=pres_mar, ts=ts, tss20cm=tss20cm, tss5cm=tss5cm, ta=ta, tpr=tpr,
-                                         tamin=tamin, tamax=tamax, vis=vis, rviento=rviento, nieve=nieve, prec=prec)
-                    session.add(datos)
-            except:
-                print('error')
-
-        session.commit()
-        session.close()
-
+   
 # Base de datos
 
 class BaseOne(object):
     def __init__(self, nombre_base):
 
         # # Esta sera la base de datos general con las configuraciones
-        self.motor = create_engine('sqlite:///./' + nombre_base)
-      #  uri = 'mysql+pymysql://admin:admmin00$$23@database-1.cluster-csy1i72nclox.eu-west-1.rds.amazonaws.com/' + nombre_base
-      #  self.motor = create_engine(uri)
-       # uri = 'mysql+pymysql://admin:admmin00$$23@database-1.cluster-csy1i72nclox.eu-west-1.rds.amazonaws.com/' + nombre_base
-       # ssl_args = {'ssl': {'key': 'ec2-proyecto-bd3-ff.pem'}}
-       # self.motor = create_engine(uri, connect_args=ssl_args )
+        uri = 'mysql+pymysql://admin:admmin00$$23@database-1.cluster-csy1i72nclox.eu-west-1.rds.amazonaws.com/' + nombre_base
+        self.motor = create_engine(uri)
         Base.metadata.create_all(self.motor)
         self.Sesion = sessionmaker(bind=self.motor)
         self.Sesion.configure(bind=self.motor)
 
     def sesion_inicio(self):
         return self.Sesion()
-
-    def inspect(self):
-        inspector = inspect(self.motor)
-        for table_name in inspector.get_table_names():
-            for column in inspector.get_columns(table_name):
-                print("Column: %s" % column['name'])
-
+ 
 class EstacionTiempo(Base):
     __tablename__='EstacionTiempo'
     id = Column(Integer, primary_key=True)
@@ -485,19 +352,16 @@ class MedidaTiempo(Base):
     def __repr__(self):
         return "<MedidaTiempo(fecha= %s)" %(self.fecha)
 
-
 estaciones = aemet(api=api)
 estaciones_madrid = estaciones.filter_provincia_idema('MADRID')
 estaciones.save_estaciones(estaciones_madrid)
-#estaciones.save_datos(estaciones_madrid)
-file_csv = estaciones.open_csv()
-#estaciones.carga_datos_csv(file_csv)
-# carga de datos
 
-#while True:
-#    estaciones.save_datos(estaciones_madrid)
-#    print("dumiendo")
-#    sleep(3600)
+while True:
+    estaciones.save_datos(estaciones_madrid)
+    # duerme durante una hora
+    sleep(3600)
+
+
 
 
 
