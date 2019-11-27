@@ -8,13 +8,14 @@ facilitar el trabajo de evaluación explicamos someramente que hay en
 cada uno de ellos. Dentro de los directorios hay un `README.md` que
 desarrolla más el contenido de cada uno
 
-* `BD` Información de como está construida la base de datos.
+* `BD` - Información de como está construida la base de datos.
 
-* `captura_camaras` scrapea y analiza las imagenes publicas de las
+* `captura_camaras` - scrapea y analiza las imagenes publicas de las
   camaras de trafico de Madrid para contar el número de coches que hay
   en ellas.
   
-* `Cluster` 
+* `Cluster` - Realiza la agrupación de los distintos sensores en
+  conjuntos de datos para poder realizar el modelo
 
 * `cluster-map-master`
 
@@ -28,11 +29,13 @@ desarrolla más el contenido de cada uno
 
 * `Influx`
 
-* `Modelo Deep Learning`
+* `Modelo Deep Learning` - Analisis, decisión e implementación del
+  modelo predictivo elegido.
   
-* `Propuesta`
+* `Propuesta` - Documentación de la propuesta inicial, así como la
+  presentación final del proyecto.
 
-* `ServerLess`
+* `ServerLess`  
 
 
 
