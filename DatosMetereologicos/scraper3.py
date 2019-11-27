@@ -357,21 +357,9 @@ estaciones_madrid = estaciones.filter_provincia_idema('MADRID')
 estaciones.save_estaciones(estaciones_madrid)
 
 while True:
+    # Guardo las medidas
     estaciones.save_datos(estaciones_madrid)
     # duerme durante una hora
     sleep(3600)
 
-
-
-
-
-
-
-
-# estaciones_madrid = estaciones.filter_provincia_idema('MADRID')
-#
-# while True:
-#     estaciones.get_datos_est(estaciones_madrid)
-#     print("dumiendo")
-#     sleep(3600)
 
