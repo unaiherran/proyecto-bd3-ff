@@ -121,38 +121,6 @@ def clusterizar_camaras():
             print(id, cluster)
 
 
-def contaminacion_a_cluster():
-    if connection.is_connected():
-        q = "SELECT id, longitud, latitud FROM contaminacion_estacion;"
-        df = pd.read_sql(q, connection)
-        X_contaminacion = df.drop(columns=['id']).values
-        num_cluster_cont = 24
-        random_state = 42
-        kmeans_contaminacion = KMeans(n_clusters=num_cluster_cont, random_state=random_state)
-        y_pred_contaminacion = kmeans_contaminacion.fit(X_contaminacion)
-
-        cur = connection.cursor()
-        q = "SELECT id_cluster, longitud, latitud FROM Cluster;"
-        cur.execute(q)
-
-        cluster = cur.fetchall()
-
-        for c in cluster:
-            id = c[0]
-            long = c[1]
-            lat = c[2]
-            coordenadas = np.array([long, lat])
-
-            sensor = y_pred_contaminacion.predict(X=coordenadas.reshape(1, -1))[0]
-
-            sql = f'UPDATE Cluster SET cont_2 = {sensor} WHERE id_cluster = {id}'
-            cur.execute(sql)
-
-            connection.commit()
-
-            print(id, sensor)
-
-
 def clusterizar_gran_evento():
     """Asigna cada gran evento a un cluster, y le pone tambien cuales son los clusters que estan a menos de
     2000 metros de él. Se supone que un gran evento no sólo va a afectar al trafico de donde ocurre sino tambien
@@ -233,7 +201,7 @@ def tiempo_a_cluster():
             print(f"Cluster {clu[0]} -> Estacion más cercana {estacion} a {distancia_estacion} m")
 
 
-def contaminacion_a_cluster2():
+def contaminacion_a_cluster():
     """Como hay más clusters que estaciones, lo que se hace es asignar a cada cluster la estación más cercana """
 
 
@@ -268,18 +236,18 @@ def contaminacion_a_cluster2():
 
 
 def main():
-    #poblar_cluster()
+    poblar_cluster()
 
-    #clusterizar_camaras()
+    clusterizar_camaras()
 
-    #clusterizar_sensores()
+    clusterizar_sensores()
 
-    #clusterizar_eventos()
+    clusterizar_eventos()
     clusterizar_gran_evento()
 
-    #tiempo_a_cluster()
+    tiempo_a_cluster()
 
-    #contaminacion_a_cluster2()
+    contaminacion_a_cluster()
 
 
 if __name__ == '__main__':
