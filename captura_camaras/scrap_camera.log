@@ -1,0 +1,64 @@
+2019-10-13 12:53:16,878 INFO Input file is: lista_camaras.csv
+2019-10-13 12:53:16,878 INFO Output file is lista_camaras_test_out.csv
+2019-10-13 12:53:16,878 INFO Status requested is 0
+2019-10-13 12:53:16,879 INFO Inicio del scrap 2019-10-13 12:53:16.878585
+2019-10-13 12:54:32,201 INFO Input file is: lista_camaras.csv
+2019-10-13 12:54:32,201 INFO Output file is lista_camaras_test_out.csv
+2019-10-13 12:54:32,201 INFO Status requested is 0
+2019-10-13 12:54:32,201 INFO Inicio del scrap 2019-10-13 12:54:32.200954
+2019-10-13 13:16:19,200 WARNING De 302 pedidos, se han adquirido 294 imagenes, con 8 errores
+2019-10-13 13:16:19,203 INFO Fin del Scrap 2019-10-13 13:16:19.203754
+2019-10-13 13:16:19,204 INFO INFO: Me ha costado hacer el crawl 0:21:47.002800
+2019-10-14 20:07:05,504 INFO Input file is: lista_camaras.csv
+2019-10-14 20:07:05,504 INFO Output file is lista_camaras_test_out.csv
+2019-10-14 20:07:05,504 INFO Status requested is 0
+2019-10-14 20:07:05,504 INFO Inicio del scrap 2019-10-14 20:07:05.504735
+2019-10-14 20:09:02,435 WARNING De 302 pedidos, se han adquirido 0 imagenes, con 302 errores
+2019-10-14 20:09:02,442 INFO Fin del Scrap 2019-10-14 20:09:02.442852
+2019-10-14 20:09:02,442 INFO INFO: Me ha costado hacer el crawl 0:01:56.938117
+2019-10-16 23:20:01,945 INFO Input file is: lista_camaras.csv
+2019-10-16 23:20:01,945 INFO Output file is lista_camaras_test_out.csv
+2019-10-16 23:20:01,945 INFO Status requested is 0
+2019-10-16 23:20:01,945 INFO Inicio del scrap 2019-10-16 23:20:01.945049
+2019-10-16 23:27:01,498 WARNING De 302 pedidos, se han adquirido 294 imagenes, con 8 errores
+2019-10-16 23:27:01,502 INFO Fin del Scrap 2019-10-16 23:27:01.501992
+2019-10-16 23:27:01,502 INFO INFO: Me ha costado hacer el crawl 0:06:59.556943
+2019-10-16 23:28:53,461 INFO Input file is: lista_camaras.csv
+2019-10-16 23:28:53,461 INFO Output file is lista_camaras_test_out.csv
+2019-10-16 23:28:53,461 INFO Status requested is 0
+2019-10-16 23:28:53,461 INFO Inicio del scrap 2019-10-16 23:28:53.461398
+2019-10-19 21:25:38,265 INFO Input file is: lista_camaras.csv
+2019-10-19 21:25:38,265 INFO Output file is lista_camaras_test_out.csv
+2019-10-19 21:25:38,265 INFO Status requested is 0
+2019-10-19 21:25:38,265 INFO Inicio del scrap 2019-10-19 21:25:38.265379
+2019-10-19 21:27:09,876 WARNING De 302 pedidos, se han adquirido 294 imagenes, con 8 errores
+2019-10-19 21:27:09,877 INFO Fin del Scrap 2019-10-19 21:27:09.877803
+2019-10-19 21:27:09,877 INFO INFO: Me ha costado hacer el crawl 0:01:31.612424
+2019-10-20 00:35:24,072 INFO Input file is: lista_camaras.csv
+2019-10-20 00:35:24,072 INFO Output file is lista_camaras.csv
+2019-10-20 00:35:24,072 INFO Status requested is 0
+2019-10-20 00:35:24,072 INFO Inicio del scrap 2019-10-20 00:35:24.072229
+2019-10-20 00:36:41,562 WARNING De 302 pedidos, se han adquirido 294 imagenes, con 8 errores
+2019-10-20 00:36:41,563 INFO Fin del Scrap 2019-10-20 00:36:41.563598
+2019-10-20 00:36:41,563 INFO INFO: Me ha costado hacer el crawl 0:01:17.491369
+2019-10-20 00:38:31,198 INFO Input file is: lista_camaras.csv
+2019-10-20 00:38:31,198 INFO Output file is lista_camaras.csv
+2019-10-20 00:38:31,198 INFO Status requested is 0
+2019-10-20 00:38:31,198 INFO Inicio del scrap 2019-10-20 00:38:31.198558
+2019-10-20 00:39:45,252 INFO De 302 pedidos, se han adquirido 294 imagenes, con 0 errores
+2019-10-20 00:39:45,253 INFO Fin del Scrap 2019-10-20 00:39:45.252979
+2019-10-20 00:39:45,253 INFO INFO: Me ha costado hacer el crawl 0:01:14.054421
+2019-10-20 01:24:16,156 INFO Input file is: lista_camaras.csv
+2019-10-20 01:24:16,157 INFO Output file is lista_camaras.csv
+2019-10-20 01:24:16,157 INFO Status requested is 0
+2019-10-20 01:24:16,157 INFO Inicio del scrap 2019-10-20 01:24:16.156539
+2019-10-20 01:25:37,870 INFO De 302 pedidos, se han adquirido 294 imagenes, con 0 errores
+2019-10-20 01:25:37,871 INFO Fin del Scrap 2019-10-20 01:25:37.871641
+2019-10-20 01:25:37,871 INFO INFO: Me ha costado hacer el crawl 0:01:21.715102
+2019-10-20 01:34:32,807 INFO Input file is: lista_camaras.csv
+2019-10-20 01:34:32,807 INFO Output file is lista_camaras.csv
+2019-10-20 01:34:32,807 INFO Status requested is 0
+2019-10-20 01:34:32,807 INFO Inicio del scrap 2019-10-20 01:34:32.807728
+2019-10-20 01:35:51,162 INFO De 302 pedidos, se han adquirido 294 imagenes, con 0 errores
+2019-10-20 01:35:51,163 INFO Fin del Scrap 2019-10-20 01:35:51.163489
+2019-10-20 01:35:51,163 INFO INFO: Me ha costado hacer el crawl 0:01:18.355761
